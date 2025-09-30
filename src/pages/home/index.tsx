@@ -10,7 +10,6 @@ export const Home = () => {
   const isAdmin = currentUser?.role?.name === 'Admin';
   const { push } = useNavigation();
   
-  // Fetch data for total count cards
   const { data: leadsData, isLoading: leadsLoading } = useList({
     resource: isAdmin ? "leads" : `leads/user/${currentUser?._id}`,
     pagination: { mode: "off" },
