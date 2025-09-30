@@ -1,0 +1,15 @@
+export { ProfessionalModal } from './professional-modal';
+export { ProfessionalFormItem } from './professional-form-item';
+
+// Specific modal components
+export { UserEditModal } from './user-edit-modal';
+export { UserCreateModal } from './user-create-modal';
+export { LeadEditModal } from './lead-edit-modal';
+export { LeadCreateModal } from './lead-create-modal';
+export { ReminderEditModal } from './reminder-edit-modal';
+export { ReminderCreateModal } from './reminder-create-modal';
+export { OpportunityEditModal } from './opportunity-edit-modal';
+export { OpportunityCreateModal } from './opportunity-create-modal';
+export { RoleEditModal } from './role-edit-modal';
+export { RoleCreateModal } from './role-create-modal';
+export { InteractionModal } from './interaction-modal';

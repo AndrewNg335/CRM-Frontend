@@ -1,0 +1,1100 @@
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
+
+/* ===== Global App Background (Professional Light Theme) ===== */
+html, body, #root {
+  height: 100%;
+}
+
+html, body {
+  margin: 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 30%, #e2e8f0 70%, #cbd5e1 100%);
+  background-attachment: fixed;
+}
+
+/* Make Ant Design layout containers transparent so global bg shows */
+.ant-layout, .ant-layout-content, .ant-layout-header, .ant-layout-footer {
+  background: transparent !important;
+}
+
+/* Professional animations and effects */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0; 
+    transform: translateX(-20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.6s ease-out;
+}
+
+/* Custom shadow */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Professional glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Professional input focus effect */
+.input-glow:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Professional button hover effect */
+.btn-hover {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.btn-hover:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== PROFESSIONAL LIGHT THEME STYLES ===== */
+
+/* Professional Card Styles */
+.professional-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Professional Input Styles */
+.professional-input {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  border-radius: 8px !important;
+  color: #1e293b !important;
+  transition: all 0.2s ease !important;
+}
+
+.professional-input:focus {
+  border-color: #4e92ff !important;
+  box-shadow: 0 0 0 3px rgba(78, 146, 255, 0.1) !important;
+}
+
+.professional-input:hover {
+  border-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Professional Button Styles */
+.professional-button {
+  background: #4e92ff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  color: white !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 4px rgba(78, 146, 255, 0.2) !important;
+}
+
+.professional-button:hover {
+  background: #2563eb !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(78, 146, 255, 0.3) !important;
+}
+
+.professional-button:disabled {
+  background: #64748b !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Ghost button variant */
+.professional-button.ant-btn-primary.ant-btn-ghost {
+  background: transparent !important;
+  border: 1px solid #3b82f6 !important;
+  color: #3b82f6 !important;
+}
+
+.professional-button.ant-btn-primary.ant-btn-ghost:hover {
+  background: #3b82f6 !important;
+  color: white !important;
+  border-color: #3b82f6 !important;
+}
+
+/* Small button variant */
+.professional-button.ant-btn-sm {
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  height: auto !important;
+}
+
+/* Button with icon */
+.professional-button .anticon {
+  margin-right: 4px !important;
+}
+
+/* CreateButton specific styling */
+.ant-btn.professional-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+}
+
+/* Table action buttons */
+.professional-card .ant-table-tbody .ant-btn.professional-button {
+  margin: 0 2px !important;
+}
+
+/* Modal button styling */
+.professional-modal .ant-btn.professional-button {
+  margin: 0 4px !important;
+}
+
+/* Consistent page container styling */
+.page-container {
+  padding: 16px !important;
+  background: transparent !important;
+}
+
+.page-container .professional-card {
+  margin-bottom: 16px !important;
+}
+
+/* Enhanced table styling */
+.professional-card .ant-table-thead > tr > th {
+  background: rgba(78, 146, 255, 0.05) !important;
+  border-bottom: 2px solid rgba(78, 146, 255, 0.1) !important;
+  color: #1e293b !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  font-size: 12px !important;
+  letter-spacing: 0.5px !important;
+}
+
+.professional-card .ant-table-tbody > tr:hover > td {
+  background: rgba(78, 146, 255, 0.02) !important;
+}
+
+/* Enhanced tag styling */
+.professional-card .ant-tag {
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+  padding: 2px 8px !important;
+}
+
+/* Enhanced input styling for better consistency */
+.professional-input.ant-input,
+.professional-input.ant-input-number,
+.professional-input.ant-select-selector {
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Ant Design Select height fix */
+.ant-select {
+  height: 100% !important;
+}
+
+.ant-select .ant-select-selector {
+  height: 100% !important;
+  min-height: 40px !important;
+}
+
+.professional-input.ant-input:focus,
+.professional-input.ant-input-number:focus,
+.professional-input.ant-select-focused .ant-select-selector {
+  border-color: #4e92ff !important;
+  box-shadow: 0 0 0 3px rgba(78, 146, 255, 0.1) !important;
+}
+
+/* Professional Checkbox Styles */
+.professional-checkbox {
+  appearance: none !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  border-radius: 4px !important;
+}
+
+.professional-checkbox:checked {
+  background: #4e92ff !important;
+  border-color: #4e92ff !important;
+}
+
+/* Professional Background */
+.professional-bg {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 30%, #e2e8f0 70%, #cbd5e1 100%);
+}
+
+/* Enhanced text visibility */
+.professional-card .ant-card-head-title {
+  color: #1e293b !important;
+  font-weight: 600 !important;
+}
+
+.professional-card .ant-list-item {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.professional-card .ant-list-item:hover {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Chart container styling */
+.professional-card .ant-card-body {
+  position: relative;
+}
+
+/* Ensure chart text is visible */
+.professional-card .ant-typography {
+  color: #475569 !important;
+}
+
+.professional-card .ant-typography strong {
+  color: #1e293b !important;
+}
+
+/* Icon styling */
+.professional-card .anticon {
+  color: #64748b !important;
+}
+
+/* ===== LAYOUT PROFESSIONAL STYLES ===== */
+
+/* Header Styles */
+.professional-header {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.professional-logo {
+  transition: all 0.3s ease;
+}
+
+.professional-logo:hover {
+  transform: scale(1.02);
+}
+
+.professional-title-text {
+  position: relative;
+}
+
+/* Sidebar Styles */
+.professional-sidebar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(10px);
+  position: fixed !important;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  z-index: 1000 !important;
+  overflow: hidden !important;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1) !important;
+  width: 240px !important;
+  height: 100vh !important;
+}
+
+.professional-sidebar-menu {
+  background: transparent !important;
+  border: none !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  max-height: calc(100vh - 140px) !important;
+  padding-bottom: 20px !important;
+}
+
+/* Center the menu container when collapsed */
+.professional-sidebar.collapsed .professional-sidebar-menu {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 0 !important;
+}
+
+.professional-sidebar.collapsed .professional-sidebar-menu .ant-menu {
+  width: 80px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 8px 0 !important;
+}
+
+.professional-sidebar .ant-menu {
+  background: transparent !important;
+  border: none !important;
+}
+
+.professional-sidebar .ant-menu-item {
+  color: #475569 !important;
+  border-radius: 8px !important;
+  margin: 4px 8px !important;
+  transition: all 0.2s ease !important;
+  height: 40px !important;
+  line-height: 40px !important;
+}
+
+.professional-sidebar .ant-menu-item:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #1e293b !important;
+}
+
+.professional-sidebar .ant-menu-item-selected {
+  background: rgba(78, 146, 255, 0.1) !important;
+  color: #4e92ff !important;
+}
+
+.professional-sidebar .ant-menu-item-icon {
+  color: #64748b !important;
+}
+
+.professional-sidebar .ant-menu-submenu-title {
+  color: #475569 !important;
+  border-radius: 8px !important;
+  margin: 4px 8px !important;
+  transition: all 0.2s ease !important;
+  height: 40px !important;
+  line-height: 40px !important;
+}
+
+.professional-sidebar .ant-menu-submenu-title:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #1e293b !important;
+}
+
+.professional-sidebar .ant-menu-submenu .ant-menu-item {
+  margin: 2px 16px !important;
+  padding-left: 24px !important;
+}
+
+.professional-sidebar .ant-menu-submenu-arrow {
+  color: #64748b !important;
+}
+
+/* Menu scrollbar styling */
+.professional-sidebar-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.professional-sidebar-menu::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.professional-sidebar-menu::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.professional-sidebar-menu::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Collapsed sidebar styles */
+.professional-sidebar.collapsed {
+  width: 80px !important;
+}
+
+.professional-sidebar.collapsed .ant-menu-item,
+.professional-sidebar.collapsed .ant-menu-submenu-title {
+  width: 64px !important;
+  height: 40px !important;
+  margin: 4px 8px !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  border-radius: 8px !important;
+  position: relative !important;
+}
+
+.professional-sidebar.collapsed .ant-menu-item-icon,
+.professional-sidebar.collapsed .ant-menu-submenu-title-icon {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 16px !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.professional-sidebar.collapsed .ant-menu-submenu-arrow {
+  display: none !important;
+}
+
+.professional-sidebar.collapsed .ant-menu-submenu-popup {
+  left: 80px !important;
+}
+
+.professional-sidebar.collapsed .ant-menu-item-selected {
+  background: rgba(78, 146, 255, 0.1) !important;
+  color: #4e92ff !important;
+}
+
+.professional-sidebar.collapsed .ant-menu-item-selected .ant-menu-item-icon,
+.professional-sidebar.collapsed .ant-menu-item-selected .ant-menu-submenu-title-icon {
+  color: #4e92ff !important;
+}
+
+/* Remove any text content in collapsed mode */
+.professional-sidebar.collapsed .ant-menu-item .ant-menu-title-content,
+.professional-sidebar.collapsed .ant-menu-submenu-title .ant-menu-title-content {
+  display: none !important;
+}
+
+/* Additional alignment fixes for collapsed menu */
+.professional-sidebar.collapsed .ant-menu-item-group-title,
+.professional-sidebar.collapsed .ant-menu-item-group-list {
+  display: none !important;
+}
+
+.professional-sidebar.collapsed .ant-menu-vertical .ant-menu-item,
+.professional-sidebar.collapsed .ant-menu-vertical .ant-menu-submenu-title {
+  width: 64px !important;
+  margin-left: 8px !important;
+  margin-right: 8px !important;
+}
+
+/* Ensure no text wrapping or overflow */
+.professional-sidebar.collapsed .ant-menu-item,
+.professional-sidebar.collapsed .ant-menu-submenu-title {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Collapse button hover effect */
+.professional-sidebar .ant-btn:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #1e293b !important;
+}
+
+/* Bottom section styling */
+.professional-sidebar .bottom-section {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  .professional-sidebar {
+    width: 200px !important;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .professional-sidebar.collapsed {
+    width: 200px !important;
+    transform: translateX(-100%);
+  }
+  
+  .professional-sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+  
+  .refine-layout .ant-layout {
+    margin-left: 0 !important;
+  }
+  
+  .refine-layout .ant-layout-content {
+    margin-left: 0 !important;
+    padding: 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .professional-sidebar {
+    width: 100% !important;
+  }
+  
+  .professional-sidebar.collapsed {
+    width: 100% !important;
+  }
+}
+
+/* Avatar Container */
+.professional-avatar-container {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.professional-avatar-container:hover {
+  transform: scale(1.02);
+}
+
+/* Menu Button Styles */
+.professional-menu-button {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  text-align: left !important;
+  padding: 8px 12px !important;
+}
+
+.professional-menu-button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  transform: translateX(2px);
+}
+
+.professional-menu-button .anticon {
+  color: #94a3b8 !important;
+}
+
+/* Popover Styles */
+.professional-popover .ant-popover-content {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Content Area Styles */
+.professional-content {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  margin: 16px;
+  padding: 24px;
+}
+
+/* Card Overrides for better visibility */
+.professional-card .ant-card {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.professional-card .ant-card-head {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.professional-card .ant-card-head-title {
+  color: #1e293b !important;
+  font-weight: 600 !important;
+}
+
+.professional-card .ant-card-body {
+  background: transparent !important;
+}
+
+/* Table Styles */
+.professional-card .ant-table {
+  background: transparent !important;
+}
+
+.professional-card .ant-table-thead > tr > th {
+  background: rgba(0, 0, 0, 0.02) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+.professional-card .ant-table-tbody > tr > td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03) !important;
+  color: #475569 !important;
+}
+
+.professional-card .ant-table-tbody > tr:hover > td {
+  background: rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Button Styles */
+.professional-card .ant-btn-primary {
+  background: #4e92ff !important;
+  border-color: #4e92ff !important;
+  color: white !important;
+}
+
+.professional-card .ant-btn-primary:hover {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 4px 12px rgba(78, 146, 255, 0.3) !important;
+}
+
+/* Form Styles */
+.professional-card .ant-input {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  color: #1e293b !important;
+}
+
+.professional-card .ant-input:focus {
+  border-color: #4e92ff !important;
+  box-shadow: 0 0 0 3px rgba(78, 146, 255, 0.08) !important;
+}
+
+.professional-card .ant-select-selector {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  color: #1e293b !important;
+}
+
+.professional-card .ant-select-focused .ant-select-selector {
+  border-color: #4e92ff !important;
+  box-shadow: 0 0 0 3px rgba(78, 146, 255, 0.08) !important;
+}
+
+/* Pagination Styles */
+.professional-card .ant-pagination-item {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.professional-card .ant-pagination-item a {
+  color: #e2e8f0 !important;
+}
+
+.professional-card .ant-pagination-item-active {
+  background: #4e92ff !important;
+  border-color: #4e92ff !important;
+}
+
+.professional-card .ant-pagination-item-active a {
+  color: white !important;
+}
+
+/* ===== Overrides for Refine ThemedLayoutV2 Sider/Menu ===== */
+.refine-layout .ant-layout-sider {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(10px);
+}
+
+.refine-layout .ant-layout-sider .ant-layout-sider-children {
+  background: transparent !important;
+}
+
+.refine-layout .ant-menu {
+  background: transparent !important;
+}
+
+.refine-layout .ant-menu-item,
+.refine-layout .ant-menu-submenu-title {
+  color: #475569 !important;
+  border-radius: 8px !important;
+  margin: 4px 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.refine-layout .ant-menu-item:hover,
+.refine-layout .ant-menu-submenu-title:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #1e293b !important;
+}
+
+.refine-layout .ant-menu-item-selected {
+  background: rgba(78, 146, 255, 0.1) !important;
+  color: #4e92ff !important;
+}
+
+.refine-layout .ant-menu-item .anticon,
+.refine-layout .ant-menu-submenu-title .anticon {
+  color: #64748b !important;
+}
+
+.refine-layout .ant-menu-submenu-arrow::before,
+.refine-layout .ant-menu-submenu-arrow::after {
+  background: #64748b !important;
+}
+
+/* Collapse trigger button at the bottom of sider */
+.refine-layout .ant-layout-sider-trigger {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.refine-layout .ant-layout-sider-trigger .ant-btn,
+.refine-layout .ant-layout-sider-trigger button,
+.refine-layout .ant-layout-sider-trigger .anticon {
+  background: transparent !important;
+  color: #64748b !important;
+}
+
+/* Title/Logo area in sider */
+.refine-layout .ant-layout-sider .ant-layout-sider-children > div[style*="height: 64px"] {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Logo chip wrapper */
+.professional-logo-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal Styles */
+.professional-modal .ant-modal-content {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.professional-modal .ant-modal-header {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.professional-modal .ant-modal-title {
+  color: #1e293b !important;
+  font-weight: 600 !important;
+}
+
+.professional-modal .ant-modal-body {
+  background: transparent !important;
+}
+
+.professional-modal .ant-modal-footer {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.professional-modal .ant-form-item-label > label {
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+.professional-modal .ant-input,
+.professional-modal .ant-input-number,
+.professional-modal .ant-select-selector {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  color: #1e293b !important;
+}
+
+.professional-modal .ant-input:focus,
+.professional-modal .ant-input-number:focus,
+.professional-modal .ant-select-focused .ant-select-selector {
+  border-color: #4e92ff !important;
+  box-shadow: 0 0 0 3px rgba(78, 146, 255, 0.08) !important;
+}
+
+.professional-modal .ant-btn-primary {
+  background: #4e92ff !important;
+  border-color: #4e92ff !important;
+  color: white !important;
+}
+
+.professional-modal .ant-btn-primary:hover {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 4px 12px rgba(78, 146, 255, 0.3) !important;
+}
+
+/* Enhanced Modal Styles */
+.enhanced-modal .ant-modal-content {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(20px) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.enhanced-modal .ant-modal-header {
+  background: linear-gradient(135deg, rgba(78, 146, 255, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%) !important;
+  border-bottom: 1px solid rgba(78, 146, 255, 0.1) !important;
+  border-radius: 16px 16px 0 0 !important;
+  padding: 20px 24px !important;
+}
+
+.enhanced-modal .ant-modal-title {
+  color: #1e293b !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+}
+
+.enhanced-modal .ant-modal-body {
+  background: transparent !important;
+  padding: 24px !important;
+}
+
+.enhanced-modal .ant-modal-footer {
+  background: rgba(248, 250, 252, 0.8) !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border-radius: 0 0 16px 16px !important;
+  padding: 16px 24px !important;
+}
+
+/* Enhanced Input Styles */
+.enhanced-input {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 10px !important;
+  color: #1e293b !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  font-size: 14px !important;
+  padding: 12px 16px !important;
+}
+
+.enhanced-input:hover {
+  border-color: rgba(78, 146, 255, 0.3) !important;
+  box-shadow: 0 2px 8px rgba(78, 146, 255, 0.1) !important;
+}
+
+.enhanced-input:focus {
+  border-color: #4e92ff !important;
+  box-shadow: 0 0 0 4px rgba(78, 146, 255, 0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+.enhanced-input.ant-input,
+.enhanced-input.ant-input-number,
+.enhanced-input.ant-select-selector {
+  height: 48px !important;
+}
+
+.enhanced-input.ant-input-textarea {
+  min-height: 120px !important;
+}
+
+/* Enhanced Form Item Labels */
+.enhanced-modal .ant-form-item-label > label {
+  color: #475569 !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  margin-bottom: 8px !important;
+}
+
+.enhanced-modal .ant-form-item-label > label .anticon {
+  margin-right: 8px !important;
+  font-size: 16px !important;
+}
+
+/* Enhanced Select Dropdown */
+.enhanced-modal .ant-select-dropdown {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(20px) !important;
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.enhanced-modal .ant-select-item {
+  padding: 12px 16px !important;
+  border-radius: 8px !important;
+  margin: 4px 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.enhanced-modal .ant-select-item:hover {
+  background: rgba(78, 146, 255, 0.08) !important;
+}
+
+.enhanced-modal .ant-select-item-option-selected {
+  background: rgba(78, 146, 255, 0.1) !important;
+  color: #4e92ff !important;
+  font-weight: 600 !important;
+}
+
+/* Enhanced DatePicker */
+.enhanced-modal .ant-picker {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 10px !important;
+  height: 48px !important;
+}
+
+.enhanced-modal .ant-picker:hover {
+  border-color: rgba(78, 146, 255, 0.3) !important;
+}
+
+.enhanced-modal .ant-picker-focused {
+  border-color: #4e92ff !important;
+  box-shadow: 0 0 0 4px rgba(78, 146, 255, 0.15) !important;
+}
+
+/* Enhanced MDEditor */
+.enhanced-modal .w-md-editor {
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+.enhanced-modal .w-md-editor-text-container {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.enhanced-modal .w-md-editor-text-input {
+  background: transparent !important;
+  color: #1e293b !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+/* Enhanced Button Styles */
+.enhanced-modal .ant-btn {
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  height: 44px !important;
+  padding: 0 24px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.enhanced-modal .ant-btn-primary {
+  background: linear-gradient(135deg, #4e92ff 0%, #2563eb 100%) !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(78, 146, 255, 0.3) !important;
+}
+
+.enhanced-modal .ant-btn-primary:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(78, 146, 255, 0.4) !important;
+}
+
+.enhanced-modal .ant-btn-default {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  color: #475569 !important;
+}
+
+.enhanced-modal .ant-btn-default:hover {
+  background: rgba(248, 250, 252, 0.9) !important;
+  border-color: rgba(78, 146, 255, 0.3) !important;
+  color: #4e92ff !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Enhanced Form Layout */
+.enhanced-modal .ant-form {
+  margin-top: 8px !important;
+}
+
+.enhanced-modal .ant-form-item {
+  margin-bottom: 20px !important;
+}
+
+.enhanced-modal .ant-row {
+  margin-left: -12px !important;
+  margin-right: -12px !important;
+}
+
+.enhanced-modal .ant-col {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+/* Enhanced Modal Animations */
+.enhanced-modal .ant-modal {
+  animation: modalSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Enhanced Modal Mask */
+.enhanced-modal .ant-modal-mask {
+  background: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+/* Professional Card Components */
+.interaction-card:hover,
+.reminder-card:hover,
+.opportunity-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12) !important;
+}
+
+.interaction-card,
+.reminder-card,
+.opportunity-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Professional Tabs */
+.ant-tabs-tab {
+  border-radius: 8px 8px 0 0 !important;
+  margin-right: 4px !important;
+  padding: 8px 16px !important;
+  transition: all 0.2s ease !important;
+}
+
+.ant-tabs-tab:hover {
+  background: rgba(24, 144, 255, 0.05) !important;
+}
+
+.ant-tabs-tab-active {
+  background: rgba(24, 144, 255, 0.1) !important;
+}
+
+/* Professional Empty State */
+.ant-empty-description {
+  color: #6b7280 !important;
+  font-size: 14px !important;
+}
+
+/* Professional Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Upcoming Reminders Dashboard */
+.reminder-list-item:hover {
+  background: rgba(102, 126, 234, 0.04) !important;
+  transform: translateX(4px);
+}
+
+.reminder-list-item {
+  transition: all 0.2s ease;
+}
