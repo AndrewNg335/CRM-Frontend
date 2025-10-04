@@ -1,6 +1,5 @@
 import { Campaign } from "./campaign";
 import { User } from "./user";
-
 export interface OptinForm {
     _id: string;
     title: string;
@@ -12,4 +11,4 @@ export interface OptinForm {
     createdAt: string;
     updatedAt: string;
     __v: number;
-  }
+}

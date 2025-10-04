@@ -1,7 +1,51 @@
 @import "tailwindcss/theme" layer(theme);
 @import "tailwindcss/utilities" layer(utilities);
 
-/* ===== Global App Background (Professional Light Theme) ===== */
+.notification-dropdown-overlay {
+  z-index: 1050 !important;
+}
+
+.notification-dropdown {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f0f0;
+  overflow: hidden;
+}
+
+.notification-bell-button {
+  border: none !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease;
+}
+
+.notification-bell-button:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  border-radius: 6px !important;
+}
+
+.notification-item {
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.notification-item:hover {
+  background-color: #fafafa !important;
+}
+
+.notification-item.unread {
+  background-color: #f6ffed !important;
+  border-left: 3px solid #52c41a !important;
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.notification-list-container {
+  max-width: 400px;
+}
+
 html, body, #root {
   height: 100%;
 }
@@ -12,12 +56,58 @@ html, body {
   background-attachment: fixed;
 }
 
-/* Make Ant Design layout containers transparent so global bg shows */
 .ant-layout, .ant-layout-content, .ant-layout-header, .ant-layout-footer {
   background: transparent !important;
 }
 
-/* Professional animations and effects */
+.task-detail-modal .ant-modal-content {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+.task-detail-modal .ant-modal-body {
+  padding: 0 !important;
+}
+
+.task-detail-modal .ant-typography-edit-content {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid #bae6fd !important;
+  border-radius: 8px !important;
+  color: #1e293b !important;
+  font-size: 24px !important;
+  font-weight: 600 !important;
+}
+
+.task-detail-modal .ant-typography-edit-content::placeholder {
+  color: #64748b !important;
+}
+
+.task-detail-modal .ant-collapse {
+  background: transparent !important;
+  border: none !important;
+}
+
+.task-detail-modal .ant-collapse-item {
+  border: 1px solid #f0f0f0 !important;
+  border-radius: 8px !important;
+  margin-bottom: 16px !important;
+}
+
+.task-detail-modal .ant-collapse-header {
+  background: #fafafa !important;
+  border-radius: 8px 8px 0 0 !important;
+  padding: 16px 20px !important;
+}
+
+.task-detail-modal .ant-collapse-content {
+  border-radius: 0 0 8px 8px !important;
+}
+
+.task-detail-modal .ant-collapse-content-box {
+  padding: 20px !important;
+}
+
 @keyframes fadeIn {
   from { 
     opacity: 0; 
@@ -48,24 +138,20 @@ html, body {
   animation: slideIn 0.6s ease-out;
 }
 
-/* Custom shadow */
 .shadow-3xl {
   box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
 }
 
-/* Professional glass morphism effect */
 .glass {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Professional input focus effect */
 .input-glow:focus {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
-/* Professional button hover effect */
 .btn-hover {
   position: relative;
   overflow: hidden;
@@ -77,9 +163,7 @@ html, body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* ===== PROFESSIONAL LIGHT THEME STYLES ===== */
 
-/* Professional Card Styles */
 .professional-card {
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -88,7 +172,6 @@ html, body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
-/* Professional Input Styles */
 .professional-input {
   background: rgba(255, 255, 255, 0.8) !important;
   border: 1px solid rgba(0, 0, 0, 0.15) !important;
@@ -106,7 +189,6 @@ html, body {
   border-color: rgba(0, 0, 0, 0.25) !important;
 }
 
-/* Professional Button Styles */
 .professional-button {
   background: #4e92ff !important;
   border: none !important;
@@ -130,7 +212,6 @@ html, body {
   box-shadow: none !important;
 }
 
-/* Ghost button variant */
 .professional-button.ant-btn-primary.ant-btn-ghost {
   background: transparent !important;
   border: 1px solid #3b82f6 !important;
@@ -143,19 +224,16 @@ html, body {
   border-color: #3b82f6 !important;
 }
 
-/* Small button variant */
 .professional-button.ant-btn-sm {
   padding: 4px 8px !important;
   font-size: 12px !important;
   height: auto !important;
 }
 
-/* Button with icon */
 .professional-button .anticon {
   margin-right: 4px !important;
 }
 
-/* CreateButton specific styling */
 .ant-btn.professional-button {
   display: inline-flex !important;
   align-items: center !important;
@@ -163,17 +241,14 @@ html, body {
   gap: 4px !important;
 }
 
-/* Table action buttons */
 .professional-card .ant-table-tbody .ant-btn.professional-button {
   margin: 0 2px !important;
 }
 
-/* Modal button styling */
 .professional-modal .ant-btn.professional-button {
   margin: 0 4px !important;
 }
 
-/* Consistent page container styling */
 .page-container {
   padding: 16px !important;
   background: transparent !important;
@@ -183,7 +258,6 @@ html, body {
   margin-bottom: 16px !important;
 }
 
-/* Enhanced table styling */
 .professional-card .ant-table-thead > tr > th {
   background: rgba(78, 146, 255, 0.05) !important;
   border-bottom: 2px solid rgba(78, 146, 255, 0.1) !important;
@@ -198,14 +272,12 @@ html, body {
   background: rgba(78, 146, 255, 0.02) !important;
 }
 
-/* Enhanced tag styling */
 .professional-card .ant-tag {
   border-radius: 6px !important;
   font-weight: 500 !important;
   padding: 2px 8px !important;
 }
 
-/* Enhanced input styling for better consistency */
 .professional-input.ant-input,
 .professional-input.ant-input-number,
 .professional-input.ant-select-selector {
@@ -213,7 +285,6 @@ html, body {
   transition: all 0.2s ease !important;
 }
 
-/* Ant Design Select height fix */
 .ant-select {
   height: 100% !important;
 }
@@ -230,7 +301,6 @@ html, body {
   box-shadow: 0 0 0 3px rgba(78, 146, 255, 0.1) !important;
 }
 
-/* Professional Checkbox Styles */
 .professional-checkbox {
   appearance: none !important;
   background: rgba(255, 255, 255, 0.8) !important;
@@ -243,12 +313,10 @@ html, body {
   border-color: #4e92ff !important;
 }
 
-/* Professional Background */
 .professional-bg {
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 30%, #e2e8f0 70%, #cbd5e1 100%);
 }
 
-/* Enhanced text visibility */
 .professional-card .ant-card-head-title {
   color: #1e293b !important;
   font-weight: 600 !important;
@@ -262,12 +330,10 @@ html, body {
   background-color: rgba(0, 0, 0, 0.03) !important;
 }
 
-/* Chart container styling */
 .professional-card .ant-card-body {
   position: relative;
 }
 
-/* Ensure chart text is visible */
 .professional-card .ant-typography {
   color: #475569 !important;
 }
@@ -276,14 +342,11 @@ html, body {
   color: #1e293b !important;
 }
 
-/* Icon styling */
 .professional-card .anticon {
   color: #64748b !important;
 }
 
-/* ===== LAYOUT PROFESSIONAL STYLES ===== */
 
-/* Header Styles */
 .professional-header {
   position: relative;
   background: rgba(255, 255, 255, 0.05);
@@ -302,7 +365,6 @@ html, body {
   position: relative;
 }
 
-/* Sidebar Styles */
 .professional-sidebar {
   background: rgba(255, 255, 255, 0.95) !important;
   border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
@@ -327,7 +389,6 @@ html, body {
   padding-bottom: 20px !important;
 }
 
-/* Center the menu container when collapsed */
 .professional-sidebar.collapsed .professional-sidebar-menu {
   display: flex !important;
   flex-direction: column !important;
@@ -394,7 +455,6 @@ html, body {
   color: #64748b !important;
 }
 
-/* Menu scrollbar styling */
 .professional-sidebar-menu::-webkit-scrollbar {
   width: 4px;
 }
@@ -412,7 +472,6 @@ html, body {
   background: rgba(0, 0, 0, 0.3);
 }
 
-/* Collapsed sidebar styles */
 .professional-sidebar.collapsed {
   width: 80px !important;
 }
@@ -462,13 +521,11 @@ html, body {
   color: #4e92ff !important;
 }
 
-/* Remove any text content in collapsed mode */
 .professional-sidebar.collapsed .ant-menu-item .ant-menu-title-content,
 .professional-sidebar.collapsed .ant-menu-submenu-title .ant-menu-title-content {
   display: none !important;
 }
 
-/* Additional alignment fixes for collapsed menu */
 .professional-sidebar.collapsed .ant-menu-item-group-title,
 .professional-sidebar.collapsed .ant-menu-item-group-list {
   display: none !important;
@@ -481,7 +538,6 @@ html, body {
   margin-right: 8px !important;
 }
 
-/* Ensure no text wrapping or overflow */
 .professional-sidebar.collapsed .ant-menu-item,
 .professional-sidebar.collapsed .ant-menu-submenu-title {
   white-space: nowrap !important;
@@ -489,20 +545,17 @@ html, body {
   text-overflow: ellipsis !important;
 }
 
-/* Collapse button hover effect */
 .professional-sidebar .ant-btn:hover {
   background: rgba(0, 0, 0, 0.05) !important;
   color: #1e293b !important;
 }
 
-/* Bottom section styling */
 .professional-sidebar .bottom-section {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
 }
 
-/* Responsive styles for mobile devices */
 @media (max-width: 768px) {
   .professional-sidebar {
     width: 200px !important;
@@ -517,6 +570,14 @@ html, body {
   
   .professional-sidebar.sidebar-open {
     transform: translateX(0);
+  }
+  
+  .professional-sidebar.mobile {
+    transform: translateX(-100%) !important;
+  }
+  
+  .professional-sidebar.mobile:not(.collapsed) {
+    transform: translateX(0) !important;
   }
   
   .refine-layout .ant-layout {
@@ -539,7 +600,6 @@ html, body {
   }
 }
 
-/* Avatar Container */
 .professional-avatar-container {
   position: relative;
   transition: all 0.2s ease;
@@ -549,7 +609,6 @@ html, body {
   transform: scale(1.02);
 }
 
-/* Menu Button Styles */
 .professional-menu-button {
   background: transparent !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
@@ -569,14 +628,12 @@ html, body {
   color: #94a3b8 !important;
 }
 
-/* Popover Styles */
 .professional-popover .ant-popover-content {
   background: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   backdrop-filter: blur(10px) !important;
 }
 
-/* Content Area Styles */
 .professional-content {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
@@ -586,7 +643,6 @@ html, body {
   padding: 24px;
 }
 
-/* Card Overrides for better visibility */
 .professional-card .ant-card {
   background: rgba(255, 255, 255, 0.9) !important;
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
@@ -608,7 +664,6 @@ html, body {
   background: transparent !important;
 }
 
-/* Table Styles */
 .professional-card .ant-table {
   background: transparent !important;
 }
@@ -629,7 +684,6 @@ html, body {
   background: rgba(0, 0, 0, 0.02) !important;
 }
 
-/* Button Styles */
 .professional-card .ant-btn-primary {
   background: #4e92ff !important;
   border-color: #4e92ff !important;
@@ -642,7 +696,6 @@ html, body {
   box-shadow: 0 4px 12px rgba(78, 146, 255, 0.3) !important;
 }
 
-/* Form Styles */
 .professional-card .ant-input {
   background: rgba(255, 255, 255, 0.8) !important;
   border: 1px solid rgba(0, 0, 0, 0.15) !important;
@@ -665,7 +718,6 @@ html, body {
   box-shadow: 0 0 0 3px rgba(78, 146, 255, 0.08) !important;
 }
 
-/* Pagination Styles */
 .professional-card .ant-pagination-item {
   background: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
@@ -684,7 +736,6 @@ html, body {
   color: white !important;
 }
 
-/* ===== Overrides for Refine ThemedLayoutV2 Sider/Menu ===== */
 .refine-layout .ant-layout-sider {
   background: rgba(255, 255, 255, 0.8) !important;
   border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
@@ -728,7 +779,6 @@ html, body {
   background: #64748b !important;
 }
 
-/* Collapse trigger button at the bottom of sider */
 .refine-layout .ant-layout-sider-trigger {
   background: rgba(255, 255, 255, 0.8) !important;
   border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
@@ -741,13 +791,11 @@ html, body {
   color: #64748b !important;
 }
 
-/* Title/Logo area in sider */
 .refine-layout .ant-layout-sider .ant-layout-sider-children > div[style*="height: 64px"] {
   background: rgba(255, 255, 255, 0.8) !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Logo chip wrapper */
 .professional-logo-chip {
   display: inline-flex;
   align-items: center;
@@ -760,7 +808,6 @@ html, body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Modal Styles */
 .professional-modal .ant-modal-content {
   background: rgba(255, 255, 255, 0.95) !important;
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
@@ -819,7 +866,6 @@ html, body {
   box-shadow: 0 4px 12px rgba(78, 146, 255, 0.3) !important;
 }
 
-/* Enhanced Modal Styles */
 .enhanced-modal .ant-modal-content {
   background: rgba(255, 255, 255, 0.98) !important;
   border: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -853,7 +899,6 @@ html, body {
   padding: 16px 24px !important;
 }
 
-/* Enhanced Input Styles */
 .enhanced-input {
   background: rgba(255, 255, 255, 0.9) !important;
   border: 1px solid rgba(0, 0, 0, 0.12) !important;
@@ -885,7 +930,6 @@ html, body {
   min-height: 120px !important;
 }
 
-/* Enhanced Form Item Labels */
 .enhanced-modal .ant-form-item-label > label {
   color: #475569 !important;
   font-weight: 600 !important;
@@ -898,7 +942,6 @@ html, body {
   font-size: 16px !important;
 }
 
-/* Enhanced Select Dropdown */
 .enhanced-modal .ant-select-dropdown {
   background: rgba(255, 255, 255, 0.98) !important;
   border: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -924,7 +967,6 @@ html, body {
   font-weight: 600 !important;
 }
 
-/* Enhanced DatePicker */
 .enhanced-modal .ant-picker {
   background: rgba(255, 255, 255, 0.9) !important;
   border: 1px solid rgba(0, 0, 0, 0.12) !important;
@@ -941,7 +983,6 @@ html, body {
   box-shadow: 0 0 0 4px rgba(78, 146, 255, 0.15) !important;
 }
 
-/* Enhanced MDEditor */
 .enhanced-modal .w-md-editor {
   border: 1px solid rgba(0, 0, 0, 0.12) !important;
   border-radius: 10px !important;
@@ -959,7 +1000,6 @@ html, body {
   line-height: 1.6 !important;
 }
 
-/* Enhanced Button Styles */
 .enhanced-modal .ant-btn {
   border-radius: 10px !important;
   font-weight: 600 !important;
@@ -993,7 +1033,6 @@ html, body {
   transform: translateY(-1px) !important;
 }
 
-/* Enhanced Form Layout */
 .enhanced-modal .ant-form {
   margin-top: 8px !important;
 }
@@ -1012,7 +1051,6 @@ html, body {
   padding-right: 12px !important;
 }
 
-/* Enhanced Modal Animations */
 .enhanced-modal .ant-modal {
   animation: modalSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
@@ -1028,13 +1066,11 @@ html, body {
   }
 }
 
-/* Enhanced Modal Mask */
 .enhanced-modal .ant-modal-mask {
   background: rgba(0, 0, 0, 0.4) !important;
   backdrop-filter: blur(4px) !important;
 }
 
-/* Professional Card Components */
 .interaction-card:hover,
 .reminder-card:hover,
 .opportunity-card:hover {
@@ -1048,7 +1084,6 @@ html, body {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Professional Tabs */
 .ant-tabs-tab {
   border-radius: 8px 8px 0 0 !important;
   margin-right: 4px !important;
@@ -1064,13 +1099,11 @@ html, body {
   background: rgba(24, 144, 255, 0.1) !important;
 }
 
-/* Professional Empty State */
 .ant-empty-description {
   color: #6b7280 !important;
   font-size: 14px !important;
 }
 
-/* Professional Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -1089,7 +1122,6 @@ html, body {
   background: #a8a8a8;
 }
 
-/* Upcoming Reminders Dashboard */
 .reminder-list-item:hover {
   background: rgba(102, 126, 234, 0.04) !important;
   transform: translateX(4px);

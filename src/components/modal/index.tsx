@@ -1,7 +1,5 @@
 export { ProfessionalModal } from './professional-modal';
 export { ProfessionalFormItem } from './professional-form-item';
-
-// Specific modal components
 export { UserEditModal } from './user-edit-modal';
 export { UserCreateModal } from './user-create-modal';
 export { LeadEditModal } from './lead-edit-modal';

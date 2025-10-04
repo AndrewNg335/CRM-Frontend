@@ -10,4 +10,4 @@ export interface Reminder {
     reminderStatus: 'PENDING' | 'DONE' | 'CANCELLED';
     createdAt?: string;
     updatedAt?: string;
-  }
+}

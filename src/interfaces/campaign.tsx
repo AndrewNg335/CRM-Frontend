@@ -11,4 +11,4 @@ export interface Campaign {
     endDate?: Date;
     opportunityCount?: number;
     leadCount?: number;
-  }
+}

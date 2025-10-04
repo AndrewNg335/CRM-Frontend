@@ -13,4 +13,4 @@ export interface Lead {
     address?: string;
     interactionCount: number;
     updatedAt?: string;
-  }
+}

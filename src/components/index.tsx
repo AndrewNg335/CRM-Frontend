@@ -1,25 +1,17 @@
-import UpcomingReminders from "./home/upcoming-reminders"
-import { OpportunitiesChart } from "./home/opportunities-chart"
-import UpcomingEventsSkeleton from "./skeleton/upcoming-events"
-import AccordionHeaderSkeleton from "./skeleton/accordion-header"
-import KanbanColumnSkeleton from "./skeleton/kanban"
-import ProjectCardSkeleton from "./skeleton/project-card"
-import LastestActivitiesSkeleton from "./skeleton/latest-activities"
-
-export {
-    UpcomingReminders, OpportunitiesChart,
-    UpcomingEventsSkeleton,
-    AccordionHeaderSkeleton,
-    KanbanColumnSkeleton,
-    ProjectCardSkeleton,
-    LastestActivitiesSkeleton
-}
-export * from "./tags/user-tag"
-export * from "./text"
-export * from "./tasks/form/description"
-export * from "./tasks/form/due-date"
-export * from "./tasks/form/stage"
-export * from "./tasks/form/title"
-export * from "./tasks/form/users"
-export * from "./tasks/form/header"
-export * from "./modal"
+import UpcomingReminders from "./home/upcoming-reminders";
+import { OpportunitiesChart } from "./home/opportunities-chart";
+import UpcomingEventsSkeleton from "./skeleton/upcoming-events";
+import AccordionHeaderSkeleton from "./skeleton/accordion-header";
+import KanbanColumnSkeleton from "./skeleton/kanban";
+import ProjectCardSkeleton from "./skeleton/project-card";
+import LastestActivitiesSkeleton from "./skeleton/latest-activities";
+export { UpcomingReminders, OpportunitiesChart, UpcomingEventsSkeleton, AccordionHeaderSkeleton, KanbanColumnSkeleton, ProjectCardSkeleton, LastestActivitiesSkeleton };
+export * from "./tags/user-tag";
+export * from "./text";
+export * from "./tasks/form/description";
+export * from "./tasks/form/due-date";
+export * from "./tasks/form/stage";
+export * from "./tasks/form/title";
+export * from "./tasks/form/user-assignment";
+export * from "./tasks/form/header";
+export * from "./modal";
