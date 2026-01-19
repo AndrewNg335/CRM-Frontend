@@ -9,6 +9,7 @@ import { Card, Col, Row, Typography, Tag, Space, Button, Statistic, Timeline, Av
 import { BellOutlined, EditOutlined, CalendarOutlined, ClockCircleOutlined, UserOutlined, ExclamationCircleOutlined, TagOutlined, CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import { useParams } from "react-router";
 import dayjs from "dayjs";
+
 const { Title, Text, Paragraph } = Typography;
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
@@ -213,7 +214,6 @@ export const ReminderShow = () => {
           </Card>
         </Col>
 
-        
         <Col xs={24} lg={8}>
           <Card className="professional-card mb-6" title={<div className="flex items-center space-x-2">
               <UserOutlined className="text-cyan-500"/>

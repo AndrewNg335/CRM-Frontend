@@ -1,6 +1,6 @@
 import type { User } from '@/interfaces/user';
 import { hasAdminAccess } from '@/utilities';
-import { BellOutlined, CheckSquareOutlined, DashboardOutlined, FlagOutlined, FormOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, NotificationOutlined, ShopOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
+import { BarChartOutlined, BellOutlined, CheckSquareOutlined, DashboardOutlined, FlagOutlined, FormOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, NotificationOutlined, ShopOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
 import { useGetIdentity, useLogout, useNavigation } from '@refinedev/core';
 import { Button, Image, Layout, Menu, Tooltip } from 'antd';
 import React, { useState, useEffect } from 'react';
@@ -46,7 +46,6 @@ const Sidebar = ({ onCollapseChange, collapsed: externalCollapsed }: SidebarProp
         boxShadow: '2px 0 8px rgba(0, 0, 0, 0.15)',
     };
 
-
     const baseMenuItems = [
         {
             key: '/',
@@ -90,6 +89,11 @@ const Sidebar = ({ onCollapseChange, collapsed: externalCollapsed }: SidebarProp
             icon: <BellOutlined />,
             label: 'Nhắc nhở',
         },
+        {
+            key: '/analytics',
+            icon: <BarChartOutlined />,
+            label: 'Báo cáo thống kê',
+        }
     ];
     const adminMenuItems = [
         {
@@ -149,14 +153,12 @@ const Sidebar = ({ onCollapseChange, collapsed: externalCollapsed }: SidebarProp
           </span>)}
       </div>
 
-      
       <Menu mode="inline" defaultSelectedKeys={[window.location.pathname]} defaultOpenKeys={collapsed ? [] : hasAdminAccess(currentUser) ? ['marketing', 'users'] : ['marketing']} items={menuItems} onClick={handleMenuClick} inlineCollapsed={collapsed} style={{
             background: 'transparent',
             border: 'none',
             marginTop: '8px',
         }} className="professional-sidebar-menu"/>
 
-      
       <div className="bottom-section" style={{
             position: 'absolute',
             bottom: 0,
@@ -181,7 +183,6 @@ const Sidebar = ({ onCollapseChange, collapsed: externalCollapsed }: SidebarProp
             flex: 'none',
         }}/>
 
-        
         <Tooltip title={collapsed ? "Mở rộng menu" : "Thu gọn menu"} placement="right">
           <Button type="text" icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />} onClick={() => handleCollapse(!collapsed)} style={{
             background: 'transparent',

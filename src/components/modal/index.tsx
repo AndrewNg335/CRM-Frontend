@@ -11,3 +11,4 @@ export { OpportunityCreateModal } from './opportunity-create-modal';
 export { RoleEditModal } from './role-edit-modal';
 export { RoleCreateModal } from './role-create-modal';
 export { InteractionModal } from './interaction-modal';
+export { InteractionEditModal } from './interaction-edit-modal';

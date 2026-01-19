@@ -28,7 +28,7 @@ const List = ({ children }: React.PropsWithChildren) => {
         sorters: [{ field: "dueDate", order: "asc" }],
         pagination: { mode: "off" },
         queryOptions: {
-            enabled: !!currentUser?._id, // Only run when we have currentUser._id
+            enabled: !!currentUser?._id, 
         },
     });
     const { mutate: updateTask } = useUpdate<Task, HttpError>({

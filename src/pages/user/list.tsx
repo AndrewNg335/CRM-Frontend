@@ -8,6 +8,7 @@ import { FilterDropdown, useModalForm, useTable } from '@refinedev/antd';
 import { getDefaultFilter, HttpError, useDelete, useDeleteMany, useGetIdentity, useGo, useInvalidate, useList } from '@refinedev/core';
 import { Button, Card, Col, Form, Input, Modal, Row, Select, Space, Table, Tag, Tooltip, Typography } from 'antd';
 import React, { useEffect, useState } from "react";
+
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 export const UserList = ({ children }: React.PropsWithChildren) => {
     const go = useGo();
@@ -287,7 +288,6 @@ export const UserList = ({ children }: React.PropsWithChildren) => {
           </Space>
         </div>
 
-        
         <Card className="mb-4" bodyStyle={{ padding: '16px 24px' }}>
           <Form {...searchFormProps} layout="inline" style={{ width: '100%' }}>
             <Form.Item name="name" style={{ marginBottom: 0, width: '100%' }}>
@@ -297,7 +297,6 @@ export const UserList = ({ children }: React.PropsWithChildren) => {
         </Card>
       </div>
 
-      
       <Row gutter={[16, 16]} className="mb-6">
         <Col xs={24} sm={6}>
           <FilterableStatsCard title="Tổng người dùng" value={getStatsData().total} color="#3b82f6" isActive={activeFilter === 'total'} onClick={() => handleFilterClick('total')}/>
@@ -313,7 +312,6 @@ export const UserList = ({ children }: React.PropsWithChildren) => {
         </Col>
       </Row>
 
-      
       {selectedRowKeys.length > 0 && (<div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -336,7 +334,6 @@ export const UserList = ({ children }: React.PropsWithChildren) => {
           </div>
         </div>)}
 
-      
       <Card className="shadow-lg border-0 rounded-lg overflow-hidden">
         <Table {...tableProps} dataSource={getFilteredData()} rowSelection={rowSelection} pagination={{
             ...tableProps.pagination,
@@ -351,11 +348,11 @@ export const UserList = ({ children }: React.PropsWithChildren) => {
                 <span className="font-semibold">Tên người dùng</span>
               </div>} defaultFilteredValue={getDefaultFilter('_id', filters)} filterIcon={<SearchOutlined />} filterDropdown={(props) => (<FilterDropdown {...props}>
                 <Input placeholder="Tìm kiếm người dùng"/>
-              </FilterDropdown>)} render={(_, record) => (<div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+              </FilterDropdown>)}             render={(_, record) => (<div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <UserOutlined className="text-blue-600 text-lg"/>
                 </div>
-                <div>
+                <div className="flex-1 min-w-0">
                   <Typography.Text strong className="text-gray-800">
                     {record.name}
                   </Typography.Text>
@@ -463,7 +460,6 @@ export const UserList = ({ children }: React.PropsWithChildren) => {
 
       {children}
 
-      
       <Modal {...modalProps} centered okText="Lưu" cancelText="Hủy"  title={<div className="flex items-center gap-3">
           <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
             <UserOutlined className="text-blue-600"/>
@@ -545,7 +541,6 @@ export const UserList = ({ children }: React.PropsWithChildren) => {
         </Form>
       </Modal>
 
-      
       <ProfessionalModal {...createModalProps} okText="Lưu" cancelText="Hủy" title="Thêm người dùng mới" icon={<UserOutlined className="text-blue-600"/>} width={700} destroyOnClose>
         <Form {...createFormProps} layout="vertical" className="space-y-4">
           <Row gutter={[24, 16]}>

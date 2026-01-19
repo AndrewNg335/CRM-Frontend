@@ -57,7 +57,7 @@ export const AccountSettings = ({ opened, setOpened, userId }: Props) => {
             });
         }
         catch (error) {
-            console.error("Failed to fetch user profile:", error);
+            
             message.error("Không thể tải thông tin người dùng");
         }
         finally {
@@ -97,7 +97,7 @@ export const AccountSettings = ({ opened, setOpened, userId }: Props) => {
             closeModal();
         }
         catch (error) {
-            console.error("Failed to update profile:", error);
+            
             message.error("Cập nhật thông tin thất bại");
         }
         finally {

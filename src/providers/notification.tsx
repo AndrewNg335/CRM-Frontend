@@ -46,7 +46,7 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({ chil
       const response = await notificationService.getMyNotifications(params);
       setNotifications(response.data);
     } catch (error) {
-      console.error('Error fetching notifications:', error);
+      
     } finally {
       setLoading(false);
     }
@@ -57,7 +57,7 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({ chil
       const response = await notificationService.getUnreadCount();
       setUnreadCount(response.count);
     } catch (error) {
-      console.error('Error fetching unread count:', error);
+      
     }
   };
 
@@ -75,7 +75,7 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({ chil
       
       setUnreadCount(prev => Math.max(0, prev - 1));
     } catch (error) {
-      console.error('Error marking notification as read:', error);
+      
     }
   };
 
@@ -91,7 +91,7 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({ chil
         setUnreadCount(prev => Math.max(0, prev - 1));
       }
     } catch (error) {
-      console.error('Error deleting notification:', error);
+      
     }
   };
 

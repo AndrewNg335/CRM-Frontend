@@ -15,10 +15,10 @@ export const ReminderCreateModal: React.FC<ReminderCreateModalProps> = ({ modalP
             const currentUserId = formProps.form.getFieldValue('userId');
             const currentOwnerId = formProps.form.getFieldValue('ownerId');
             if (!currentUserId) {
-                console.warn('userId not set in reminder create form');
+                
             }
             if (!currentOwnerId) {
-                console.warn('ownerId not set in reminder create form');
+                
             }
         }
     }, [modalProps?.open, formProps?.form]);
@@ -34,16 +34,13 @@ export const ReminderCreateModal: React.FC<ReminderCreateModalProps> = ({ modalP
           <Input />
         </Form.Item>
 
-        
         <Form.Item name="leadId" hidden>
           <Input />
         </Form.Item>
 
-        
         <Form.Item name="ownerId" hidden>
           <Input />
         </Form.Item>
-
 
         <Row gutter={[24, 16]}>
           <Col xs={24} md={12}>

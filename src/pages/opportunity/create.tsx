@@ -63,7 +63,6 @@ export const CreateOpportunity = () => {
             <Input />
           </Form.Item>
 
-          
           {isAdmin && (<Row gutter={[24, 16]}>
               <Col xs={24} md={12}>
                 <ProfessionalFormItem label="Người phụ trách" name="ownerId" icon={<UserOutlined className="text-teal-500"/>}>

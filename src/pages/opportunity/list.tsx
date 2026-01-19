@@ -222,7 +222,7 @@ export const OpportunityList = ({ children }: React.PropsWithChildren) => {
             }).format(safeAmount);
         }
         catch (error) {
-            console.error('Error formatting currency:', error);
+            
             return 'Lỗi định dạng';
         }
     };
@@ -360,7 +360,6 @@ export const OpportunityList = ({ children }: React.PropsWithChildren) => {
           </Space>
         </div>
 
-        
         <Card className="mb-4" bodyStyle={{ padding: '16px 24px' }}>
           <Form {...searchFormProps} layout="inline" style={{ width: '100%' }}>
             <Form.Item name="name" style={{ marginBottom: 0, width: '100%' }}>
@@ -370,7 +369,6 @@ export const OpportunityList = ({ children }: React.PropsWithChildren) => {
         </Card>
       </div>
 
-      
       <Row gutter={[16, 16]} className="mb-6">
         <Col xs={24} sm={6}>
           <FilterableStatsCard title="Tổng cơ hội" value={getStatsData().total} color="#3b82f6" isActive={activeFilter === 'total'} onClick={() => handleFilterClick('total')}/>
@@ -386,7 +384,6 @@ export const OpportunityList = ({ children }: React.PropsWithChildren) => {
         </Col>
       </Row>
 
-      
       {selectedRowKeys.length > 0 && (<div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -409,7 +406,6 @@ export const OpportunityList = ({ children }: React.PropsWithChildren) => {
           </div>
         </div>)}
 
-      
       <Card className="shadow-lg border-0 rounded-lg overflow-hidden">
         <Table {...tableProps} dataSource={getFilteredData()} rowSelection={rowSelection} pagination={{
             ...tableProps.pagination,
@@ -424,11 +420,11 @@ export const OpportunityList = ({ children }: React.PropsWithChildren) => {
                 <span className="font-semibold">Tên cơ hội</span>
               </div>} defaultFilteredValue={getDefaultFilter("_id", filters)} filterIcon={<SearchOutlined />} filterDropdown={(props) => (<FilterDropdown {...props}>
                 <Input placeholder="Tìm kiếm cơ hội"/>
-              </FilterDropdown>)} render={(_, record) => (<div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-600 rounded-lg flex items-center justify-center">
-                  <AimOutlined className="text-white text-sm"/>
+              </FilterDropdown>)}             render={(_, record) => (<div className="flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "#dbeafe" }}>
+                  <AimOutlined className="text-sm" style={{ color: "#3b82f6" }}/>
                 </div>
-                <div>
+                <div className="flex-1 min-w-0">
                   <Typography.Text strong className="text-gray-800">
                     {record.name}
                   </Typography.Text>
@@ -517,7 +513,6 @@ export const OpportunityList = ({ children }: React.PropsWithChildren) => {
 
       {children}
 
-
       <div>
         <Modal open={detailVisible} onCancel={() => setDetailVisible(false)} centered okText="Lưu" cancelText="Hủy" footer={null} width={900} styles={{ body: { maxHeight: "calc(80vh - 200px)", overflowY: "auto" } }} title="Chi tiết cơ hội">
           {selectedOpportunity && (<div>
@@ -553,7 +548,6 @@ export const OpportunityList = ({ children }: React.PropsWithChildren) => {
         </Modal>
       </div>
 
-      
       <OpportunityEditModal modalProps={editModalProps} formProps={editFormProps} ownerSelectProps={ownerSelectProps} leadSelectProps={leadSelectProps} campaignSelectProps={campaignSelectProps} isAdmin={isAdmin}/>
 
     </div>);

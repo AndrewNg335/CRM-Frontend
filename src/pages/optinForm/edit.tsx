@@ -73,15 +73,13 @@ export const EditOptinForm = () => {
               </Typography.Text>
             </div>
           </div>
-          
-          
+
           {currentData && (<Badge status={isActive ? "success" : "default"} text={<Tag color={isActive ? "success" : "default"} className="px-3 py-1 text-sm font-medium">
                   <CheckCircleOutlined className="mr-1"/>
                   {isActive ? "Đang hoạt động" : "Tạm dừng"}
                 </Tag>}/>)}
         </div>
 
-        
         {currentData && (<Card className="mb-6" bodyStyle={{ padding: '16px 24px' }}>
             <Row gutter={[24, 16]}>
               <Col xs={24} sm={8}>
@@ -232,7 +230,6 @@ export const EditOptinForm = () => {
           </Edit>
         </Col>
 
-        
         <Col xs={24} xl={10}>
           <Card title={<div className="flex items-center space-x-2">
                 <CodeOutlined className="text-green-600"/>
@@ -256,7 +253,6 @@ export const EditOptinForm = () => {
                 </div>
               </div>
 
-              
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <Typography.Text strong className="text-gray-700">
@@ -287,7 +283,6 @@ export const EditOptinForm = () => {
                 </div>
               </div>
 
-              
               {currentData && (<div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">

@@ -101,8 +101,7 @@ export const CreateOptinForm = () => {
                           String(option?.label ?? '').toLowerCase().includes(input.toLowerCase())
                         }
                         onSearch={(value) => {
-                          // Trigger search when user types
-                          console.log('Searching for user:', value);
+
                         }}
                       />
                     </Form.Item>
@@ -135,7 +134,6 @@ export const CreateOptinForm = () => {
             </div>
           </Card>
 
-  
         </Col>
       </Row>
     </div>);

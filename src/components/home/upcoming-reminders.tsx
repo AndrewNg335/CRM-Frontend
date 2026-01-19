@@ -63,34 +63,19 @@ export const UpcomingReminders = () => {
                 padding: "0",
                 background: "rgba(255, 255, 255, 0.95)"
             },
-        }} title={<div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        }}         title={<div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{
                 width: 40,
                 height: 40,
-                borderRadius: 12,
-                background: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+                borderRadius: 10,
+                background: "#fef3f2",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 4px 12px rgba(240, 147, 251, 0.4)",
-                position: "relative",
-                overflow: "hidden"
+                justifyContent: "center"
             }}>
-            <div style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: "linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
-                borderRadius: 12
-            }}/>
             <NotificationOutlined style={{
-                color: "white",
-                fontSize: 18,
-                position: "relative",
-                zIndex: 1,
-                filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.2))"
+                color: "#f97316",
+                fontSize: 18
             }}/>
           </div>
           <div>

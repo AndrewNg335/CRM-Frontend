@@ -14,8 +14,6 @@ import { FilterDropdown, useModalForm, useTable } from '@refinedev/antd';
 import { getDefaultFilter, HttpError, useDelete, useDeleteMany, useGetIdentity, useGo, useInvalidate } from '@refinedev/core';
 import { Badge, Button, Card, Checkbox, Col, Form, Input, Modal, Row, Space, Table, Tooltip, Typography } from 'antd';
 import React, { useCallback, useMemo } from "react";
-
-
 const ROLE_FILTER_TYPES = {
   TOTAL: 'total',
   ADMIN: 'admin',
@@ -24,7 +22,6 @@ const ROLE_FILTER_TYPES = {
 } as const;
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-
 
 const getRoleIcon = (roleName: string) => {
   const iconMap: Record<string, React.ReactNode> = {
@@ -462,10 +459,10 @@ export const RoleList = ({ children }: React.PropsWithChildren) => {
             )}
             render={(name, record) => (
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   {getRoleIcon(name)}
                 </div>
-                <div>
+                <div className="flex-1 min-w-0">
                   <Typography.Text strong className="text-gray-800">
                     {name}
                   </Typography.Text>

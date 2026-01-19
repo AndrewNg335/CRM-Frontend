@@ -159,7 +159,6 @@ export const CampaignShow = () => {
           </Card>
         </Col>
 
-        
         <Col xs={24} lg={8}>
           <Card className="professional-card mb-6" title={<div className="flex items-center space-x-2">
               <RiseOutlined className="text-indigo-500"/>

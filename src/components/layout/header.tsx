@@ -57,8 +57,7 @@ export const Header = () => {
           </span>
         </div>
       </div>
-      
-      
+
       <Space align="center" size="middle">
         <NotificationBell />
         <CurrentUser />

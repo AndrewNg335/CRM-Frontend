@@ -26,16 +26,13 @@ export const ReminderEditModal: React.FC<ReminderEditModalProps> = ({ modalProps
           <Input />
         </Form.Item>
 
-        
         <Form.Item name="leadId" hidden>
           <Input />
         </Form.Item>
 
-        
         <Form.Item name="ownerId" hidden>
           <Input />
         </Form.Item>
-
 
         <Row gutter={[24, 16]}>
           <Col xs={24} md={12}>

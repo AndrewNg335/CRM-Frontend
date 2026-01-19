@@ -1,5 +1,5 @@
 import { InteractionCard, OpportunityCard, ReminderCard } from "@/components/cards";
-import { InteractionModal, OpportunityCreateModal, ReminderCreateModal, ReminderEditModal } from "@/components/modal";
+import { InteractionModal, InteractionEditModal, OpportunityCreateModal, ReminderCreateModal, ReminderEditModal } from "@/components/modal";
 import { BackButton } from "@/components/back-button";
 import type { User } from "@/interfaces/user";
 import { BellOutlined, DollarOutlined, EnvironmentOutlined, FileTextOutlined, LinkOutlined, MailOutlined, MessageOutlined, PhoneOutlined, PlusOutlined, TagOutlined, UserOutlined } from "@ant-design/icons";
@@ -80,6 +80,25 @@ export const LeadDetailPage = () => {
     });
     const { formProps: interactionFormProps, modalProps: interactionModalProps, show: showInteractionModal, } = useModalForm({
         action: "create",
+        resource: "interactions",
+        redirect: false,
+        mutationMode: "pessimistic",
+        onMutationSuccess: () => {
+            fetch(`${apiUrl}/interactions/lead/${lead?._id}`, {
+                headers: getAuthHeaders(),
+            })
+                .then((res) => res.json())
+                .then((res) => setInteractions(res.data ?? []))
+                .finally(() => {
+                try {
+                    refetch?.();
+                }
+                catch { }
+            });
+        },
+    });
+    const { formProps: editInteractionFormProps, modalProps: editInteractionModalProps, show: showEditInteractionModal, } = useModalForm({
+        action: "edit",
         resource: "interactions",
         redirect: false,
         mutationMode: "pessimistic",
@@ -270,7 +289,7 @@ export const LeadDetailPage = () => {
                       {interactionsLoading ? (<div style={{ textAlign: 'center', padding: '40px 0' }}>
                           <Spin size="large"/>
                         </div>) : interactions.length === 0 ? (<Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="Chưa có tương tác nào" style={{ margin: '20px 0' }}/>) : (<div style={{ maxHeight: '400px', overflowY: 'auto' }}>
-                          {interactions.map((interaction: any) => (<InteractionCard key={interaction._id} interaction={interaction} onDelete={(id) => {
+                          {interactions.map((interaction: any) => (<InteractionCard key={interaction._id} interaction={interaction} onEdit={(id) => showEditInteractionModal(id)} onDelete={(id) => {
                                 setInteractions((prev) => prev.filter((i) => i._id !== id));
                                 fetch(`${apiUrl}/interactions/lead/${lead?._id}`, {
                                     headers: getAuthHeaders(),
@@ -336,7 +355,6 @@ export const LeadDetailPage = () => {
         </Col>
       </Row>
 
-      
       <Modal {...modalProps} centered okText="Lưu" cancelText="Hủy" title={<div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
               <UserOutlined className="text-blue-600"/>
@@ -429,16 +447,14 @@ export const LeadDetailPage = () => {
         </Form>
       </Modal>
 
-      
       <InteractionModal modalProps={interactionModalProps} formProps={interactionFormProps} initialValues={{ leadId: lead._id }}/>
 
-      
+      <InteractionEditModal modalProps={editInteractionModalProps} formProps={editInteractionFormProps}/>
+
       <ReminderCreateModal modalProps={reminderModalProps} formProps={reminderFormProps} leadSelectProps={{ options: [] }} initialValues={{ leadId: lead._id }} hideLeadSelect={true}/>
 
-      
       <ReminderEditModal modalProps={editReminderModalProps} formProps={editReminderFormProps} hideLeadField={true}/>
 
-      
       <OpportunityCreateModal modalProps={opportunityModalProps} formProps={opportunityFormProps} ownerSelectProps={ownerSelectProps} leadSelectProps={{ options: [] }} campaignSelectProps={campaignSelectProps} isAdmin={isAdmin} initialValues={{ leadId: lead._id }} hideLeadSelect={true}/>
 
     </div>);

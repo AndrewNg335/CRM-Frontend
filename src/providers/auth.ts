@@ -1,7 +1,8 @@
 import { AuthProvider } from "@refinedev/core";
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
+const API_URL =  "http://localhost:3000";
 
 let profileCache: any = null;
 let profileCacheTime: number = 0;
@@ -22,7 +23,7 @@ const executeLoginCallbacks = () => {
     try {
       callback();
     } catch (error) {
-      console.error('Error executing login callback:', error);
+      
     }
   });
 };
@@ -93,7 +94,7 @@ export const authProvider: AuthProvider = {
             return response.data.user;
         }
         catch (error) {
-            console.error("Failed to get user identity:", error);
+            
             profileCache = null;
             profileCacheTime = 0;
             return null;

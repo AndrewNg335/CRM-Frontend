@@ -35,8 +35,7 @@ const TasksEditPage = () => {
         redirect: false,
         warnWhenUnsavedChanges: false,
     });
-    
-    // Get users list for admin
+
     const { data: usersData } = useList<User>({
         resource: "auth",
         pagination: { mode: 'off' },
@@ -82,7 +81,6 @@ const TasksEditPage = () => {
                                   Chi tiết Task
                                 </Typography.Text>
                             </div>
-                            <BackButton size="small" />
                         </div>
                         <div style={{ marginBottom: '12px' }}>
                             <TitleForm initialValues={{ title: record?.title || "" }} isLoading={isLoading}/>
@@ -165,7 +163,7 @@ const TasksEditPage = () => {
                         size="small"
                         icon={<DeleteOutlined />}
                         onSuccess={() => {
-                            // Invalidate both admin and user-specific task lists
+                            
                             invalidate({
                                 resource: "tasks",
                                 invalidates: ["list"],

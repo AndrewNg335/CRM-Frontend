@@ -1,5 +1,5 @@
 import type { IResourceItem } from "@refinedev/core";
-import { ApartmentOutlined, BellOutlined, CheckSquareOutlined, CustomerServiceOutlined, DashboardOutlined, FlagOutlined, FormOutlined, IdcardOutlined, NotificationOutlined, ShopOutlined, TeamOutlined, UserOutlined, } from "@ant-design/icons";
+import { ApartmentOutlined, BarChartOutlined, BellOutlined, CheckSquareOutlined, CustomerServiceOutlined, DashboardOutlined, FlagOutlined, FormOutlined, IdcardOutlined, NotificationOutlined, ShopOutlined, TeamOutlined, UserOutlined, } from "@ant-design/icons";
 export const resources: IResourceItem[] = [
     {
         name: "dashboard",
@@ -7,6 +7,14 @@ export const resources: IResourceItem[] = [
         meta: {
             label: "Dashboard",
             icon: <DashboardOutlined />,
+        },
+    },
+    {
+        name: "analytics",
+        list: "/analytics",
+        meta: {
+            label: "Báo Cáo Thống Kê",
+            icon: <BarChartOutlined />,
         },
     },
     {

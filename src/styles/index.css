@@ -172,7 +172,7 @@ html, body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
-.professional-input {
+.professional-input:not(.ant-select):not(.ant-input-textarea):not(.ant-input-textarea-affix-wrapper) {
   background: rgba(255, 255, 255, 0.8) !important;
   border: 1px solid rgba(0, 0, 0, 0.15) !important;
   border-radius: 8px !important;
@@ -180,12 +180,12 @@ html, body {
   transition: all 0.2s ease !important;
 }
 
-.professional-input:focus {
+.professional-input:not(.ant-select):not(.ant-input-textarea):not(.ant-input-textarea-affix-wrapper):focus {
   border-color: #4e92ff !important;
   box-shadow: 0 0 0 3px rgba(78, 146, 255, 0.1) !important;
 }
 
-.professional-input:hover {
+.professional-input:not(.ant-select):not(.ant-input-textarea):not(.ant-input-textarea-affix-wrapper):hover {
   border-color: rgba(0, 0, 0, 0.25) !important;
 }
 
@@ -855,15 +855,14 @@ html, body {
 }
 
 .professional-modal .ant-btn-primary {
-  background: #4e92ff !important;
-  border-color: #4e92ff !important;
+  background: #3b82f6 !important;
+  border-color: #3b82f6 !important;
   color: white !important;
 }
 
 .professional-modal .ant-btn-primary:hover {
   background: #2563eb !important;
   border-color: #2563eb !important;
-  box-shadow: 0 4px 12px rgba(78, 146, 255, 0.3) !important;
 }
 
 .enhanced-modal .ant-modal-content {
@@ -899,7 +898,7 @@ html, body {
   padding: 16px 24px !important;
 }
 
-.enhanced-input {
+.enhanced-input:not(.ant-select):not(.ant-input-textarea):not(.ant-input-textarea-affix-wrapper) {
   background: rgba(255, 255, 255, 0.9) !important;
   border: 1px solid rgba(0, 0, 0, 0.12) !important;
   border-radius: 10px !important;
@@ -909,12 +908,12 @@ html, body {
   padding: 12px 16px !important;
 }
 
-.enhanced-input:hover {
+.enhanced-input:not(.ant-select):not(.ant-input-textarea):not(.ant-input-textarea-affix-wrapper):hover {
   border-color: rgba(78, 146, 255, 0.3) !important;
   box-shadow: 0 2px 8px rgba(78, 146, 255, 0.1) !important;
 }
 
-.enhanced-input:focus {
+.enhanced-input:not(.ant-select):not(.ant-input-textarea):not(.ant-input-textarea-affix-wrapper):focus {
   border-color: #4e92ff !important;
   box-shadow: 0 0 0 4px rgba(78, 146, 255, 0.15) !important;
   transform: translateY(-1px) !important;
@@ -928,6 +927,81 @@ html, body {
 
 .enhanced-input.ant-input-textarea {
   min-height: 120px !important;
+}
+
+/* Fix double border issue for Select and TextArea components */
+.professional-input.ant-select,
+.enhanced-input.ant-select {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.professional-input.ant-select .ant-select-selector,
+.enhanced-input.ant-select .ant-select-selector {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 10px !important;
+  height: 48px !important;
+}
+
+.professional-input.ant-select:hover .ant-select-selector,
+.enhanced-input.ant-select:hover .ant-select-selector {
+  border-color: rgba(78, 146, 255, 0.3) !important;
+}
+
+.professional-input.ant-select-focused .ant-select-selector,
+.enhanced-input.ant-select-focused .ant-select-selector {
+  border-color: #4e92ff !important;
+  box-shadow: 0 0 0 4px rgba(78, 146, 255, 0.15) !important;
+}
+
+/* Fix double border issue for TextArea */
+/* When TextArea has wrapper */
+.professional-input.ant-input-textarea-affix-wrapper,
+.enhanced-input.ant-input-textarea-affix-wrapper,
+.professional-input.ant-input-textarea,
+.enhanced-input.ant-input-textarea {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Direct textarea styling */
+textarea.professional-input.ant-input,
+textarea.enhanced-input.ant-input,
+.professional-input.ant-input-textarea .ant-input,
+.enhanced-input.ant-input-textarea .ant-input,
+.professional-input.ant-input-textarea-affix-wrapper textarea.ant-input,
+.enhanced-input.ant-input-textarea-affix-wrapper textarea.ant-input {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 10px !important;
+  padding: 12px 16px !important;
+}
+
+/* Hover states */
+textarea.professional-input.ant-input:hover,
+textarea.enhanced-input.ant-input:hover,
+.professional-input.ant-input-textarea:hover .ant-input,
+.enhanced-input.ant-input-textarea:hover .ant-input,
+.professional-input.ant-input-textarea-affix-wrapper:hover textarea.ant-input,
+.enhanced-input.ant-input-textarea-affix-wrapper:hover textarea.ant-input {
+  border-color: rgba(78, 146, 255, 0.3) !important;
+  box-shadow: 0 2px 8px rgba(78, 146, 255, 0.1) !important;
+}
+
+/* Focus states */
+textarea.professional-input.ant-input:focus,
+textarea.enhanced-input.ant-input:focus,
+.professional-input.ant-input-textarea-focused .ant-input,
+.enhanced-input.ant-input-textarea-focused .ant-input,
+.professional-input.ant-input-textarea-affix-wrapper-focused textarea.ant-input,
+.enhanced-input.ant-input-textarea-affix-wrapper-focused textarea.ant-input {
+  border-color: #4e92ff !important;
+  box-shadow: 0 0 0 4px rgba(78, 146, 255, 0.15) !important;
 }
 
 .enhanced-modal .ant-form-item-label > label {
@@ -1009,15 +1083,15 @@ html, body {
 }
 
 .enhanced-modal .ant-btn-primary {
-  background: linear-gradient(135deg, #4e92ff 0%, #2563eb 100%) !important;
-  border: none !important;
-  box-shadow: 0 4px 12px rgba(78, 146, 255, 0.3) !important;
+  background: #3b82f6 !important;
+  border: 1px solid #3b82f6 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
 }
 
 .enhanced-modal .ant-btn-primary:hover {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 20px rgba(78, 146, 255, 0.4) !important;
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
 }
 
 .enhanced-modal .ant-btn-default {

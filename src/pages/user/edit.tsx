@@ -94,7 +94,6 @@ export const UserEdit = () => {
         </div>
       </div>
 
-      
       <Card className="shadow-lg border-0 rounded-lg overflow-hidden">
         <Edit saveButtonProps={{
             ...saveButtonProps,
@@ -152,7 +151,6 @@ export const UserEdit = () => {
               </Col>
             </Row>
 
-            
             {true && (<Row gutter={[24, 16]}>
                 <Col xs={24} md={12}>
                   <ProfessionalFormItem label="Vai trò" name="role" icon={<CrownOutlined className="text-yellow-500"/>} rules={[{ required: true, message: 'Vui lòng chọn vai trò!' }]}>

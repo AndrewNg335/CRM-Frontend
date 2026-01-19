@@ -8,7 +8,7 @@ import { App as AntdApp, ConfigProvider } from "antd";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router";
 import Layout from "./components/layout";
 import { resources } from "./config/resources";
-import { Home, LeadDetailPage, LeadList, Login } from "./pages";
+import { AnalyticsPage, Home, LeadDetailPage, LeadList, Login } from "./pages";
 import { CreateCampaign } from "./pages/campaign/create";
 import { EditCampaign } from "./pages/campaign/edit";
 import { CampaignShow } from "./pages/campaign/show";
@@ -61,6 +61,7 @@ function App() {
                       </Layout>
                     </Authenticated>}>
                   <Route index element={<Home />}/>
+                  <Route path="/analytics" element={<AnalyticsPage />}/>
                   <Route path="/leads">
                     <Route index element={<LeadList />}/>
                     <Route path="edit/:id" element={<LeadDetailPage />}/>
@@ -68,8 +69,7 @@ function App() {
                 
                   <Route path="/reminders">
                     <Route index element={<ReminderList />}/>
-                    
-                    
+
                     <Route path="show/:id" element={<ReminderShow />}/>
                   </Route>
                   <Route path="/campaigns">

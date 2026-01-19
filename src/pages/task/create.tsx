@@ -70,7 +70,6 @@ const TasksCreatePage = () => {
 
     return (<ProfessionalModal  {...modalProps} onCancel={handleCancel} okText="Lưu" cancelText="Hủy" title="Thêm Task mới" icon={<CheckSquareOutlined className="text-blue-600"/>} width={700}>
       <div className="mb-4">
-        <BackButton size="small" />
       </div>
       <Form {...formProps} layout="vertical" className="space-y-4">
         <Row gutter={[24, 16]}>

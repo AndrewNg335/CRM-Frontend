@@ -151,7 +151,6 @@ export const OptinFormList = ({ children }: React.PropsWithChildren) => {
           </Space>
         </div>
 
-        
         <Card className="mb-4" bodyStyle={{ padding: '16px 24px' }}>
           <Form {...searchFormProps} layout="inline" style={{ width: '100%' }}>
             <Form.Item name="title" style={{ marginBottom: 0, width: '100%' }}>
@@ -161,7 +160,6 @@ export const OptinFormList = ({ children }: React.PropsWithChildren) => {
         </Card>
       </div>
 
-      
       <Row gutter={[16, 16]} className="mb-6">
         <Col xs={24} sm={6}>
           <FilterableStatsCard title="Tổng form" value={getStatsData().total} color="#3b82f6" isActive={activeFilter === 'total'} onClick={() => handleFilterClick('total')}/>
@@ -177,7 +175,6 @@ export const OptinFormList = ({ children }: React.PropsWithChildren) => {
         </Col>
       </Row>
 
-      
       {selectedRowKeys.length > 0 && (<div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -200,7 +197,6 @@ export const OptinFormList = ({ children }: React.PropsWithChildren) => {
           </div>
         </div>)}
 
-      
       <Card className="shadow-lg border-0 rounded-lg overflow-hidden">
         <Table {...tableProps} dataSource={getFilteredData()} rowSelection={rowSelection} pagination={{
             ...tableProps.pagination,
@@ -215,11 +211,11 @@ export const OptinFormList = ({ children }: React.PropsWithChildren) => {
                 <span className="font-semibold">Tiêu đề</span>
               </div>} defaultFilteredValue={getDefaultFilter("_id", filters)} filterIcon={<SearchOutlined />} filterDropdown={(props) => (<FilterDropdown {...props}>
                 <Input placeholder="Tìm kiếm form đăng ký"/>
-              </FilterDropdown>)} render={(_, record) => (<div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
-                  <FormOutlined className="text-white text-sm"/>
+              </FilterDropdown>)}             render={(_, record) => (<div className="flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "#fce7f3" }}>
+                  <FormOutlined className="text-sm" style={{ color: "#ec4899" }}/>
                 </div>
-                <div>
+                <div className="flex-1 min-w-0">
                   <Typography.Text strong className="text-gray-800">
                     {record.title}
                   </Typography.Text>

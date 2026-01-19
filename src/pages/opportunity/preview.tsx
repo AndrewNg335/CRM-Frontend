@@ -99,8 +99,6 @@ const EditOpportunityModal = ({ modalProps, formProps, saveButtonProps, formLoad
           </Col>
         </Row>
 
-     
-
         {isAdmin && (
           <ProfessionalFormItem label="Người phụ trách" name="ownerId" icon={<UserOutlined className="text-gray-500"/>}>
             <Select {...ownerSelectProps} placeholder="Chọn người phụ trách" allowClear/>
@@ -295,7 +293,6 @@ export const OpportunityPreview = () => {
             </div>
           </Card>
 
-          
           <Card className="professional-card mb-6" title={<div className="flex items-center space-x-2">
               <FileTextOutlined className="text-green-500"/>
               <span>Thông tin chi tiết</span>
@@ -343,7 +340,6 @@ export const OpportunityPreview = () => {
             </Row>
           </Card>
 
-          
           <Card className="professional-card" title={<div className="flex items-center space-x-2">
               <ClockCircleOutlined className="text-purple-500"/>
               <span>Timeline</span>
@@ -371,7 +367,6 @@ export const OpportunityPreview = () => {
           </Card>
         </Col>
 
-        
         <Col xs={24} lg={8}>
           
           <Card className="professional-card mb-6" title={<div className="flex items-center space-x-2">
@@ -390,7 +385,6 @@ export const OpportunityPreview = () => {
             </Row>
           </Card>
 
-          
           <Card className="professional-card mb-6" title={<div className="flex items-center space-x-2">
               <TeamOutlined className="text-cyan-500"/>
               <span>Thông tin liên quan</span>
@@ -441,7 +435,6 @@ export const OpportunityPreview = () => {
         </Col>
       </Row>
 
-      
       <EditOpportunityModal modalProps={modalProps} formProps={formProps} saveButtonProps={{}} formLoading={false}/>
     </div>);
 };

@@ -56,8 +56,7 @@ export const Login = () => {
             backgroundSize: '20px 20px'
         }}></div>
       </div>
-      
-      
+
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-indigo-500/5 rounded-full blur-3xl"></div>
 
@@ -72,7 +71,6 @@ export const Login = () => {
           </p>
         </div>
 
-        
         <div className="bg-white/80 backdrop-blur-lg border border-white/40 rounded-xl p-8 shadow-2xl">
           <form onSubmit={handleSubmit} className="space-y-6">
             
@@ -91,7 +89,6 @@ export const Login = () => {
               {errors.email && (<p className="mt-1 text-sm text-red-500">{errors.email}</p>)}
             </div>
 
-            
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-slate-700 mb-2">
                 Mật khẩu
@@ -115,7 +112,6 @@ export const Login = () => {
               {errors.password && (<p className="mt-1 text-sm text-red-500">{errors.password}</p>)}
             </div>
 
-            
             <div className="flex items-center">
               <input id="remember" type="checkbox" checked={formData.remember} onChange={(e) => handleInputChange("remember", e.target.checked)} className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300 rounded bg-white/80"/>
               <label htmlFor="remember" className="ml-2 block text-sm text-slate-700">
@@ -132,7 +128,6 @@ export const Login = () => {
               </div>
             )}
 
-            
             <button type="submit" disabled={isLoading} className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-600/50 text-white font-medium py-3 px-4 rounded-lg transition-all duration-200 flex justify-center items-center shadow-lg hover:shadow-xl disabled:shadow-lg">
               {isLoading ? (<div className="flex items-center">
                   <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

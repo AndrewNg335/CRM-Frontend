@@ -140,18 +140,17 @@ export const OpportunitiesChart = () => {
                 padding: "24px 20px 0px 20px",
                 background: "rgba(255, 255, 255, 0.95)"
             },
-        }} title={<div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        }}         title={<div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{
                 width: 40,
                 height: 40,
-                borderRadius: 12,
-                background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+                borderRadius: 10,
+                background: "#ecfdf5",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 4px 12px rgba(16, 185, 129, 0.3)"
+                justifyContent: "center"
             }}>
-            <RiseOutlined style={{ color: "white", fontSize: 18 }}/>
+            <RiseOutlined style={{ color: "#10b981", fontSize: 18 }}/>
           </div>
           <div>
             <AntText strong style={{ fontSize: 16, color: "#1f2937" }}>

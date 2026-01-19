@@ -48,8 +48,7 @@ export const RoleInfoCard: React.FC<RoleInfoCardProps> = ({ role, compact = fals
           </div>
           <Badge count={role.permissions?.length || 0} style={{ backgroundColor: '#3b82f6' }} showZero/>
         </div>
-        
-        
+
         {role.permissions && role.permissions.length > 0 && (<div>
             <Text type="secondary" className="text-xs mb-2 block">
               Quyền hạn:

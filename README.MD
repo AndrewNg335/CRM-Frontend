@@ -32,7 +32,7 @@ Refine's hooks and components simplifies the development process and eliminates 
 ### Running the production server.
 
 ```bash
-    npm run start
+    npm run dev
 ```
 
 ## Learn More

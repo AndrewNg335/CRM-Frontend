@@ -18,7 +18,7 @@ export const UserShow = () => {
         resource: "auth",
         id: userId,
         meta: {
-            customUrl: `http://localhost:3000/auth/${userId}`,
+            customUrl: `http://localhost:3000/auth/${userId}`
         },
     });
     const userData = queryResult?.data?.data;
@@ -169,7 +169,6 @@ export const UserShow = () => {
         </div>
       </div>
 
-      
       <Card className="professional-card mb-6 shadow-lg border-0 rounded-lg overflow-hidden">
         <div className="relative">
           
@@ -247,8 +246,6 @@ export const UserShow = () => {
         </div>
       </Card>
 
-
-      
       <Row gutter={[24, 24]}>
         <Col xs={24} lg={8}>
           
@@ -306,7 +303,6 @@ export const UserShow = () => {
           </Card>
         </Col>
 
-        
         <Col xs={24} lg={8}>
           <Card title={<div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center">
@@ -401,7 +397,6 @@ export const UserShow = () => {
           </Card>
         </Col>
 
-        
         <Col xs={24} lg={8}>
           <Card title={<div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center">
