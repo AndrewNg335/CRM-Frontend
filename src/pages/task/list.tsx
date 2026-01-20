@@ -9,7 +9,7 @@ import { DragEndEvent } from "@dnd-kit/core";
 import { useModalForm } from "@refinedev/antd";
 import { HttpError, useGo, useGetIdentity, useList, useUpdate, useInvalidate } from "@refinedev/core";
 import { Space } from "antd";
-import React from "react";
+import React, { useState, useEffect } from "react";
 export const STAGES = [
     { id: "todo", title: "Cần làm" },
     { id: "inprogress", title: "Đang thực hiện" },
@@ -31,6 +31,15 @@ const List = ({ children }: React.PropsWithChildren) => {
             enabled: !!currentUser?._id, 
         },
     });
+
+    const [localTasks, setLocalTasks] = useState<Task[]>([]);
+
+    useEffect(() => {
+        if (tasks?.data) {
+            setLocalTasks(tasks.data);
+        }
+    }, [tasks?.data]);
+
     const { mutate: updateTask } = useUpdate<Task, HttpError>({
         resource: "tasks",
         mutationMode: "optimistic",
@@ -43,17 +52,17 @@ const List = ({ children }: React.PropsWithChildren) => {
         mutationMode: "pessimistic",
     });
     const taskStages = React.useMemo(() => {
-        if (!tasks?.data) {
+        if (!localTasks || localTasks.length === 0) {
             return [] as (typeof STAGES[number] & {
                 tasks: Task[];
             })[];
         }
         const grouped = STAGES.map((stage) => ({
             ...stage,
-            tasks: tasks.data.filter((task) => task.stage === stage.id),
+            tasks: localTasks.filter((task) => task.stage === stage.id),
         }));
         return grouped;
-    }, [tasks]);
+    }, [localTasks]);
     const isLoading = isLoadingTasks;
     if (isLoading)
         return <PageSkeleton />;
@@ -63,6 +72,13 @@ const List = ({ children }: React.PropsWithChildren) => {
         const currentStage = event.active.data.current?.stage;
         if (currentStage === stage)
             return;
+
+        setLocalTasks((prevTasks) =>
+            prevTasks.map((task) =>
+                task._id === taskId ? { ...task, stage: stage as string } : task
+            )
+        );
+
         updateTask({ id: taskId, values: { stage } }, {
             onSuccess: () => {
                 invalidate({
@@ -74,6 +90,11 @@ const List = ({ children }: React.PropsWithChildren) => {
                         resource: `tasks/user/${currentUser._id}`,
                         invalidates: ["list"],
                     });
+                }
+            },
+            onError: () => {
+                if (tasks?.data) {
+                    setLocalTasks(tasks.data);
                 }
             },
         });
