@@ -7,6 +7,8 @@ import { PermissionDisplay, PermissionSummary } from '@/components/permissions';
 import { BackButton } from '@/components/back-button';
 import { hasAdminAccess } from '@/utilities';
 const { Title, Text, Paragraph } = Typography;
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 export const UserShow = () => {
     const go = useGo();
     const { mutate: deleteUser } = useDelete();
@@ -18,7 +20,7 @@ export const UserShow = () => {
         resource: "auth",
         id: userId,
         meta: {
-            customUrl: `http://localhost:3000/auth/${userId}`
+            customUrl: `${API_URL}/auth/${userId}`
         },
     });
     const userData = queryResult?.data?.data;
