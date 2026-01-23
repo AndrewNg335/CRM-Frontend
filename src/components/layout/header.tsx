@@ -53,7 +53,7 @@ export const Header = () => {
         )}
         <div className="professional-title-text">
           <span className="text-slate-800 text-lg font-bold">
-          Annguyen CRM
+          Customer Relationship Management
           </span>
         </div>
       </div>
