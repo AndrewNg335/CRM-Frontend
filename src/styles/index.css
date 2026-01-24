@@ -1204,3 +1204,57 @@ textarea.enhanced-input.ant-input:focus,
 .reminder-list-item {
   transition: all 0.2s ease;
 }
+
+/* Custom Pagination Styling */
+.custom-pagination {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+}
+
+.custom-pagination .ant-pagination-total-text {
+  flex-shrink: 0 !important;
+  margin-right: 8px !important;
+}
+
+.custom-pagination .ant-pagination-options {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: nowrap !important;
+}
+
+.custom-pagination .ant-pagination-options-size-changer {
+  flex-shrink: 0 !important;
+}
+
+.custom-pagination .ant-pagination-options-quick-jumper {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+}
+
+.custom-pagination .ant-pagination-options-quick-jumper input {
+  width: 50px !important;
+  margin: 0 4px !important;
+}
+
+.ant-pagination {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+@media (max-width: 768px) {
+  .custom-pagination {
+    flex-wrap: wrap !important;
+  }
+  
+  .custom-pagination .ant-pagination-options {
+    margin-top: 8px !important;
+  }
+}

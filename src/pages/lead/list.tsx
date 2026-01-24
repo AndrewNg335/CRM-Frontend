@@ -355,8 +355,24 @@ export const LeadList = ({ children }: React.PropsWithChildren) => {
             showSizeChanger: true,
             showQuickJumper: true,
             showTotal: (total, range) => `${range[0]}-${range[1]} của ${total} khách hàng`,
+            locale: { jump_to: 'Đến trang', page: '', items_per_page: '/ trang' },
             className: "custom-pagination",
-        }} rowKey="_id" className="professional-table" size="middle" scroll={{ x: isAdmin ? 1360 : 1200 }}>
+        }} rowKey="_id" className="professional-table" size="middle" scroll={{ x: isAdmin ? 1360 : 1200 }} locale={{
+            emptyText: 'Không có dữ liệu',
+            filterTitle: 'Lọc',
+            filterConfirm: 'Xác nhận',
+            filterReset: 'Đặt lại',
+            filterEmptyText: 'Không có bộ lọc',
+            selectAll: 'Chọn tất cả',
+            selectInvert: 'Đảo ngược lựa chọn',
+            selectionAll: 'Chọn tất cả dữ liệu',
+            sortTitle: 'Sắp xếp',
+            expand: 'Mở rộng',
+            collapse: 'Thu gọn',
+            triggerDesc: 'Nhấn để sắp xếp giảm dần',
+            triggerAsc: 'Nhấn để sắp xếp tăng dần',
+            cancelSort: 'Nhấn để hủy sắp xếp',
+        }}>
           <Table.Column<Lead> dataIndex="search" title={<div className="flex items-center space-x-2">
                 <UserOutlined className="text-blue-500"/>
                 <span className="font-semibold">Tên khách hàng</span>
