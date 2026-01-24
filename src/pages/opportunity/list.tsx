@@ -371,16 +371,16 @@ export const OpportunityList = ({ children }: React.PropsWithChildren) => {
 
       <Row gutter={[16, 16]} className="mb-6">
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Tổng cơ hội" value={getStatsData().total} color="#3b82f6" isActive={activeFilter === 'total'} onClick={() => handleFilterClick('total')}/>
+          <FilterableStatsCard title="Tổng cơ hội" value={getStatsData().total} color="#3b82f6"/>
         </Col>
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Đã thành công" value={getStatsData().won} color="#10b981" isActive={activeFilter === 'won'} onClick={() => handleFilterClick('won')}/>
+          <FilterableStatsCard title="Đã thành công" value={getStatsData().won} color="#10b981"/>
         </Col>
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Đang xử lý" value={getStatsData().processing} color="#f59e0b" isActive={activeFilter === 'processing'} onClick={() => handleFilterClick('processing')}/>
+          <FilterableStatsCard title="Đang xử lý" value={getStatsData().processing} color="#f59e0b"/>
         </Col>
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Đã thất bại" value={getStatsData().lost} color="#ef4444" isActive={activeFilter === 'lost'} onClick={() => handleFilterClick('lost')}/>
+          <FilterableStatsCard title="Đã thất bại" value={getStatsData().lost} color="#ef4444"/>
         </Col>
       </Row>
 

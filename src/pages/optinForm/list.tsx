@@ -162,16 +162,16 @@ export const OptinFormList = ({ children }: React.PropsWithChildren) => {
 
       <Row gutter={[16, 16]} className="mb-6">
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Tổng form" value={getStatsData().total} color="#3b82f6" isActive={activeFilter === 'total'} onClick={() => handleFilterClick('total')}/>
+          <FilterableStatsCard title="Tổng form" value={getStatsData().total} color="#3b82f6"/>
         </Col>
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Đang hoạt động" value={getStatsData().active} color="#10b981" isActive={activeFilter === 'active'} onClick={() => handleFilterClick('active')}/>
+          <FilterableStatsCard title="Đang hoạt động" value={getStatsData().active} color="#10b981"/>
         </Col>
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Tạm dừng" value={getStatsData().inactive} color="#f59e0b" isActive={activeFilter === 'inactive'} onClick={() => handleFilterClick('inactive')}/>
+          <FilterableStatsCard title="Tạm dừng" value={getStatsData().inactive} color="#f59e0b"/>
         </Col>
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Tổng lượt đăng ký" value={getStatsData().totalSubmissions} color="#8b5cf6" isActive={activeFilter === 'submissions'} onClick={() => handleFilterClick('submissions')}/>
+          <FilterableStatsCard title="Tổng lượt đăng ký" value={getStatsData().totalSubmissions} color="#8b5cf6"/>
         </Col>
       </Row>
 

@@ -354,16 +354,16 @@ export const ReminderList = ({ children }: React.PropsWithChildren) => {
 
       <Row gutter={[16, 16]} className="mb-6">
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Tổng nhắc nhở" value={getStatsData().total} color="#3b82f6" isActive={activeFilter === 'total'} onClick={() => handleFilterClick('total')}/>
+          <FilterableStatsCard title="Tổng nhắc nhở" value={getStatsData().total} color="#3b82f6"/>
         </Col>
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Đã hoàn thành" value={getStatsData().done} color="#10b981" isActive={activeFilter === 'done'} onClick={() => handleFilterClick('done')}/>
+          <FilterableStatsCard title="Đã hoàn thành" value={getStatsData().done} color="#10b981"/>
         </Col>
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Chờ xử lý" value={getStatsData().pending} color="#eab308" isActive={activeFilter === 'pending'} onClick={() => handleFilterClick('pending')}/>
+          <FilterableStatsCard title="Chờ xử lý" value={getStatsData().pending} color="#eab308"/>
         </Col>
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Quá hạn" value={getStatsData().overdue} color="#ef4444" isActive={activeFilter === 'overdue'} onClick={() => handleFilterClick('overdue')}/>
+          <FilterableStatsCard title="Quá hạn" value={getStatsData().overdue} color="#ef4444"/>
         </Col>
       </Row>
 

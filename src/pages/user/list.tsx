@@ -299,16 +299,16 @@ export const UserList = ({ children }: React.PropsWithChildren) => {
 
       <Row gutter={[16, 16]} className="mb-6">
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Tổng người dùng" value={getStatsData().total} color="#3b82f6" isActive={activeFilter === 'total'} onClick={() => handleFilterClick('total')}/>
+          <FilterableStatsCard title="Tổng người dùng" value={getStatsData().total} color="#3b82f6"/>
         </Col>
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Đang hoạt động" value={getStatsData().active} color="#10b981" isActive={activeFilter === 'active'} onClick={() => handleFilterClick('active')}/>
+          <FilterableStatsCard title="Đang hoạt động" value={getStatsData().active} color="#10b981"/>
         </Col>
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Không hoạt động" value={getStatsData().inactive} color="#ef4444" isActive={activeFilter === 'inactive'} onClick={() => handleFilterClick('inactive')}/>
+          <FilterableStatsCard title="Không hoạt động" value={getStatsData().inactive} color="#ef4444"/>
         </Col>
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Quản trị viên" value={getStatsData().admin} color="#f59e0b" isActive={activeFilter === 'admin'} onClick={() => handleFilterClick('admin')}/>
+          <FilterableStatsCard title="Quản trị viên" value={getStatsData().admin} color="#f59e0b"/>
         </Col>
       </Row>
 
