@@ -160,7 +160,7 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({ chil
 
       const interval = setInterval(() => {
         fetchUnreadCount();
-      }, 20000);
+      }, 5000);
 
       return () => clearInterval(interval);
     }
