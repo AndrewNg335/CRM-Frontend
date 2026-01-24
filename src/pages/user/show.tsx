@@ -374,27 +374,8 @@ export const UserShow = () => {
                 </div>
               </div>
               
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <TeamOutlined className="text-blue-500"/>
-                </div>
-                <div>
-                  <Text type="secondary" className="text-xs">Số Task được giao</Text>
-                  <br />
-                  <Text strong className="text-gray-800">{userData.taskAssignedCount || 0}</Text>
-                </div>
-              </div>
               
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-                  <UserOutlined className="text-green-500"/>
-                </div>
-                <div>
-                  <Text type="secondary" className="text-xs">Số Lead được giao</Text>
-                  <br />
-                  <Text strong className="text-gray-800">{userData.leadAssignedCount || 0}</Text>
-                </div>
-              </div>
+
             </div>
           </Card>
         </Col>
