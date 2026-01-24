@@ -379,8 +379,6 @@ export const RoleList = ({ children }: React.PropsWithChildren) => {
             title="Tổng vai trò"
             value={statsData.total}
             color="#3b82f6"
-            isActive={activeFilter === ROLE_FILTER_TYPES.TOTAL}
-            onClick={() => handleFilterClick(ROLE_FILTER_TYPES.TOTAL)}
           />
         </Col>
         <Col xs={24} sm={6}>
@@ -388,8 +386,6 @@ export const RoleList = ({ children }: React.PropsWithChildren) => {
             title="Tổng quyền hạn"
             value={statsData.permissions}
             color="#3b82f6"
-            isActive={activeFilter === ROLE_FILTER_TYPES.ADMIN}
-            onClick={() => {}}
           />
         </Col>
       </Row>
