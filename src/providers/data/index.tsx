@@ -117,5 +117,53 @@ export const dataProvider: DataProvider = {
             data: response.data,
         };
     },
+    custom: async ({ url, method, filters, sorters, payload, query, headers }) => {
+        let requestUrl = `${API_URL}/${url}`;
+        
+        // Add query parameters if provided
+        if (query) {
+            const queryParams = new URLSearchParams();
+            Object.entries(query).forEach(([key, value]) => {
+                if (value !== undefined && value !== null) {
+                    queryParams.append(key, String(value));
+                }
+            });
+            const queryString = queryParams.toString();
+            if (queryString) {
+                requestUrl += `?${queryString}`;
+            }
+        }
+
+        const authHeaders = getAuthHeaders();
+        const mergedHeaders = { ...authHeaders, ...headers };
+
+        let response;
+        switch (method) {
+            case "get":
+                response = await axios.get(requestUrl, { headers: mergedHeaders });
+                break;
+            case "post":
+                response = await axios.post(requestUrl, payload, { headers: mergedHeaders });
+                break;
+            case "put":
+                response = await axios.put(requestUrl, payload, { headers: mergedHeaders });
+                break;
+            case "patch":
+                response = await axios.patch(requestUrl, payload, { headers: mergedHeaders });
+                break;
+            case "delete":
+                response = await axios.delete(requestUrl, { 
+                    headers: mergedHeaders,
+                    data: payload 
+                });
+                break;
+            default:
+                throw new Error(`Method ${method} is not supported`);
+        }
+
+        return {
+            data: response.data,
+        };
+    },
     getApiUrl: () => API_URL,
 };

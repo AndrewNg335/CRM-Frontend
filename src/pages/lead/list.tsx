@@ -3,9 +3,9 @@ import { FilterableStatsCard } from '@/components/cards';
 import { Lead } from '@/interfaces/lead';
 import { DeleteOutlined, EditOutlined, EnvironmentOutlined, EyeOutlined, FileTextOutlined, FilterOutlined, LinkOutlined, MailOutlined, PhoneOutlined, PlusOutlined, SearchOutlined, TagOutlined, UserOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 import { EditButton, FilterDropdown, useModalForm, useTable, useSelect } from '@refinedev/antd';
-import { getDefaultFilter, HttpError, useDelete, useDeleteMany, useGo, useGetIdentity, useInvalidate } from '@refinedev/core';
+import { getDefaultFilter, HttpError, useDelete, useDeleteMany, useGo, useGetIdentity, useInvalidate, useCustom } from '@refinedev/core';
 import { Button, Card, Col, Form, Input, Modal, Row, Select, Space, Table, Tag, Tooltip, Typography } from 'antd';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import type { User } from '@/interfaces/user';
 export const LeadList = ({ children }: React.PropsWithChildren) => {
     const go = useGo();
@@ -14,8 +14,6 @@ export const LeadList = ({ children }: React.PropsWithChildren) => {
     const { data: currentUser } = useGetIdentity<User>();
     const invalidate = useInvalidate();
     const isAdmin = currentUser?.role?.name === 'Admin';
-    const [activeFilter, setActiveFilter] = useState<string>('total');
-    const [originalData, setOriginalData] = useState<readonly Lead[]>([]);
     const [selectedRowKeys, setSelectedRowKeys] = useState<string[]>([]);
     const [selectedRows, setSelectedRows] = useState<Lead[]>([]);
     const { tableProps, filters, searchFormProps } = useTable<Lead, HttpError, Lead>({
@@ -49,37 +47,34 @@ export const LeadList = ({ children }: React.PropsWithChildren) => {
             pageSize: 12,
         },
     });
-    useEffect(() => {
-        if (tableProps.dataSource && tableProps.dataSource.length > 0) {
-            setOriginalData(tableProps.dataSource);
+
+    const statsUrl = React.useMemo(() => {
+        if (!currentUser?._id) return null;
+        return isAdmin ? 'leads/stats' : `leads/user/${currentUser._id}/stats`;
+    }, [isAdmin, currentUser?._id]);
+
+    const { data: statsData } = useCustom<{
+        data: {
+            total: number;
+            new: number;
+            contacting: number;
+            converted: number;
+            not_interested: number;
         }
-    }, [tableProps.dataSource]);
-    const getFilteredData = (): Lead[] => {
-        if (activeFilter === 'total') {
-            return [...originalData];
-        }
-        switch (activeFilter) {
-            case 'converted':
-                return originalData.filter(lead => lead.status === 'converted');
-            case 'contacting':
-                return originalData.filter(lead => lead.status === 'contacting');
-            case 'new':
-                return originalData.filter(lead => lead.status === 'new');
-            default:
-                return [...originalData];
-        }
-    };
-    const handleFilterClick = (filterType: string) => {
-        setActiveFilter(filterType);
-    };
-    const getStatsData = () => {
-        const data = getFilteredData();
-        return {
-            total: (tableProps.pagination && typeof tableProps.pagination === 'object') ? tableProps.pagination.total || 0 : 0,
-            converted: originalData.filter(lead => lead.status === 'converted').length,
-            contacting: originalData.filter(lead => lead.status === 'contacting').length,
-            new: originalData.filter(lead => lead.status === 'new').length,
-        };
+    }>({
+        url: statsUrl || 'leads/stats',
+        method: 'get',
+        queryOptions: {
+            enabled: !!statsUrl,
+        },
+    });
+
+    const stats = statsData?.data?.data || {
+        total: 0,
+        new: 0,
+        contacting: 0,
+        converted: 0,
+        not_interested: 0,
     };
     const { formProps, modalProps, show, } = useModalForm({
         action: "edit",
@@ -99,6 +94,13 @@ export const LeadList = ({ children }: React.PropsWithChildren) => {
                 invalidate({
                     resource: `leads/user/${currentUser._id}`,
                     invalidates: ["list", "many"],
+                });
+            }
+            // Invalidate stats
+            if (statsUrl) {
+                invalidate({
+                    resource: statsUrl,
+                    invalidates: ["all"],
                 });
             }
         },
@@ -128,6 +130,13 @@ export const LeadList = ({ children }: React.PropsWithChildren) => {
                 invalidate({
                     resource: `leads/user/${currentUser._id}`,
                     invalidates: ["list", "many"],
+                });
+            }
+            // Invalidate stats
+            if (statsUrl) {
+                invalidate({
+                    resource: statsUrl,
+                    invalidates: ["all"],
                 });
             }
         },
@@ -243,6 +252,13 @@ export const LeadList = ({ children }: React.PropsWithChildren) => {
                                 invalidates: ["list", "many"],
                             });
                         }
+                        // Invalidate stats
+                        if (statsUrl) {
+                            invalidate({
+                                resource: statsUrl,
+                                invalidates: ["all"],
+                            });
+                        }
                     },
                     onError: (error: any) => {
                         const message = error?.response?.data?.message ||
@@ -297,16 +313,16 @@ export const LeadList = ({ children }: React.PropsWithChildren) => {
 
       <Row gutter={[16, 16]} className="mb-6">
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Tổng khách hàng" value={getStatsData().total} color="#3b82f6" isActive={activeFilter === 'total'} onClick={() => handleFilterClick('total')}/>
+          <FilterableStatsCard title="Tổng khách hàng" value={stats.total} color="#3b82f6"/>
         </Col>
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Đã chuyển đổi" value={getStatsData().converted} color="#10b981" isActive={activeFilter === 'converted'} onClick={() => handleFilterClick('converted')}/>
+          <FilterableStatsCard title="Đã chuyển đổi" value={stats.converted} color="#10b981"/>
         </Col>
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Đang liên hệ" value={getStatsData().contacting} color="#f59e0b" isActive={activeFilter === 'contacting'} onClick={() => handleFilterClick('contacting')}/>
+          <FilterableStatsCard title="Đang liên hệ" value={stats.contacting} color="#f59e0b"/>
         </Col>
         <Col xs={24} sm={6}>
-          <FilterableStatsCard title="Khách hàng mới" value={getStatsData().new} color="#8b5cf6" isActive={activeFilter === 'new'} onClick={() => handleFilterClick('new')}/>
+          <FilterableStatsCard title="Khách hàng mới" value={stats.new} color="#8b5cf6"/>
         </Col>
       </Row>
 
@@ -333,7 +349,7 @@ export const LeadList = ({ children }: React.PropsWithChildren) => {
         </div>)}
 
       <Card className="shadow-lg border-0 rounded-lg overflow-hidden">
-        <Table {...tableProps} dataSource={getFilteredData()} rowSelection={rowSelection} pagination={{
+        <Table {...tableProps} rowSelection={rowSelection} pagination={{
             ...tableProps.pagination,
             pageSizeOptions: ['10', '20', '50', '100'],
             showSizeChanger: true,
@@ -464,6 +480,13 @@ export const LeadList = ({ children }: React.PropsWithChildren) => {
                                     invalidate({
                                         resource: `leads/user/${currentUser._id}`,
                                         invalidates: ["list", "many"],
+                                    });
+                                }
+                                // Invalidate stats
+                                if (statsUrl) {
+                                    invalidate({
+                                        resource: statsUrl,
+                                        invalidates: ["all"],
                                     });
                                 }
                             },
