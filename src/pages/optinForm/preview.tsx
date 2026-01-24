@@ -1,10 +1,17 @@
-import { useCreate } from "@refinedev/core";
+import { useCreate, useOne } from "@refinedev/core";
 import { Button, Card, Form, Input, message } from "antd";
 import { useParams } from "react-router";
 export const OptinFormPreview = () => {
     const { id: optinFormId } = useParams();
     const [form] = Form.useForm();
     const { mutate: createLead, isLoading } = useCreate();
+    const { data: optinFormData } = useOne({
+        resource: "optin-forms",
+        id: optinFormId || "",
+        queryOptions: {
+            enabled: !!optinFormId,
+        },
+    });
     const onFinish = (values: any) => {
         const leadData = {
             name: values.name,
@@ -34,7 +41,7 @@ export const OptinFormPreview = () => {
             flexDirection: "column",
             minHeight: "100vh",
         }}>
-      <Card title="Đăng ký nhận thông tin" style={{ width: 400 }}>
+      <Card title={optinFormData?.data?.title || "Đăng ký nhận thông tin"} style={{ width: 400 }}>
         <Form form={form} layout="vertical" onFinish={onFinish}>
           <Form.Item label="Tên" name="name" rules={[{ required: true, message: "Vui lòng nhập tên" }]}>
             <Input placeholder="Nhập tên của bạn"/>
