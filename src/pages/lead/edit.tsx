@@ -455,7 +455,7 @@ export const LeadDetailPage = () => {
 
       <ReminderEditModal modalProps={editReminderModalProps} formProps={editReminderFormProps} hideLeadField={true}/>
 
-      <OpportunityCreateModal modalProps={opportunityModalProps} formProps={opportunityFormProps} ownerSelectProps={ownerSelectProps} leadSelectProps={{ options: [] }} campaignSelectProps={campaignSelectProps} isAdmin={isAdmin} initialValues={{ leadId: lead._id }} hideLeadSelect={true}/>
+      <OpportunityCreateModal modalProps={opportunityModalProps} formProps={opportunityFormProps} ownerSelectProps={ownerSelectProps} leadSelectProps={{ options: [] }} campaignSelectProps={campaignSelectProps} isAdmin={isAdmin} initialValues={{ leadId: lead._id, leadName: lead.name }} hideLeadSelect={true}/>
 
     </div>);
 };

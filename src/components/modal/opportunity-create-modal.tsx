@@ -15,8 +15,33 @@ interface OpportunityCreateModalProps {
     hideLeadSelect?: boolean;
 }
 export const OpportunityCreateModal: React.FC<OpportunityCreateModalProps> = ({ modalProps, formProps, ownerSelectProps, leadSelectProps, campaignSelectProps, isAdmin = false, initialValues, hideLeadSelect = false, }) => {
+    // Auto-fill opportunity name when lead is selected
+    const handleLeadChange = (leadId: string) => {
+        if (leadId && leadSelectProps?.options && formProps?.form) {
+            const selectedLead = (leadSelectProps.options as any[]).find(
+                (option: any) => option.value === leadId
+            );
+            if (selectedLead) {
+                formProps.form.setFieldsValue({
+                    name: `Cơ hội - ${selectedLead.label}`
+                });
+            }
+        }
+    };
+
+    // Prepare initial values with auto-filled name
+    const computedInitialValues = React.useMemo(() => {
+        if (initialValues?.leadName && !initialValues?.name) {
+            return {
+                ...initialValues,
+                name: `Cơ hội - ${initialValues.leadName}`
+            };
+        }
+        return initialValues;
+    }, [initialValues]);
+
     return (<ProfessionalModal {...modalProps} okText="Lưu" cancelText="Hủy" title="Thêm cơ hội" icon={<FlagOutlined className="text-green-600"/>} width={800} destroyOnClose>
-      <Form {...formProps} layout="vertical" className="space-y-4" initialValues={initialValues}>
+      <Form {...formProps} layout="vertical" className="space-y-4" initialValues={computedInitialValues}>
         <Row gutter={[24, 16]}>
           {isAdmin ? (<Col xs={24} md={12}>
               <ProfessionalFormItem label="Người phụ trách" name="ownerId" icon={<UserOutlined className="text-teal-500"/>}>
@@ -71,7 +96,12 @@ export const OpportunityCreateModal: React.FC<OpportunityCreateModalProps> = ({ 
                   filterOption={(input, option) =>
                     String(option?.label ?? '').toLowerCase().includes(input.toLowerCase())
                   }
-    
+                  onChange={(value) => {
+                    leadSelectProps?.onChange?.(value);
+                    if (value && typeof value === 'string') {
+                      handleLeadChange(value);
+                    }
+                  }}
                 />
               </ProfessionalFormItem>
             </Col>)}

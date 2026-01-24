@@ -36,6 +36,20 @@ export const CreateOpportunity = () => {
         optionLabel: "name",
         optionValue: "_id",
     });
+
+    // Auto-fill opportunity name when lead is selected
+    const handleLeadChange = (leadId: string) => {
+        if (leadId && leadSelectProps?.options && formProps?.form) {
+            const selectedLead = (leadSelectProps.options as any[]).find(
+                (option: any) => option.value === leadId
+            );
+            if (selectedLead) {
+                formProps.form.setFieldsValue({
+                    name: `Cơ hội - ${selectedLead.label}`
+                });
+            }
+        }
+    };
     const { selectProps: campaignSelectProps } = useSelect({
         resource: "campaigns",
         optionLabel: "name",
@@ -126,7 +140,12 @@ export const CreateOpportunity = () => {
                   filterOption={(input, option) =>
                     String(option?.label ?? '').toLowerCase().includes(input.toLowerCase())
                   }
-         
+                  onChange={(value) => {
+                    leadSelectProps?.onChange?.(value);
+                    if (value && typeof value === 'string') {
+                      handleLeadChange(value);
+                    }
+                  }}
                 />
               </ProfessionalFormItem>
             </Col>
