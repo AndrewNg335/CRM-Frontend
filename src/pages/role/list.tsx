@@ -118,6 +118,24 @@ const PermissionCategory = ({ category, categoryKey }: { category: any, category
   </Card>
 );
 
+const LoadingAccess = () => (
+  <div className="page-container">
+    <Card className="professional-card">
+      <div className="text-center py-8">
+        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <CrownOutlined className="text-blue-600 text-2xl animate-pulse"/>
+        </div>
+        <Typography.Title level={3} className="text-gray-800 mb-2">
+          Đang tải...
+        </Typography.Title>
+        <Typography.Text type="secondary" className="text-base">
+          Vui lòng đợi trong giây lát
+        </Typography.Text>
+      </div>
+    </Card>
+  </div>
+);
+
 const UnauthorizedAccess = () => (
   <div className="page-container">
     <Card className="professional-card">
@@ -140,7 +158,7 @@ export const RoleList = ({ children }: React.PropsWithChildren) => {
   const go = useGo();
   const { mutate: deleteRole } = useDelete();
   const { mutate: deleteManyRoles } = useDeleteMany();
-  const { data: currentUser } = useGetIdentity<User>();
+  const { data: currentUser, isLoading: isLoadingUser } = useGetIdentity<User>();
   const invalidate = useInvalidate();
 
   const hasAccess = hasAdminAccess(currentUser);
@@ -324,6 +342,11 @@ export const RoleList = ({ children }: React.PropsWithChildren) => {
     },
     onMutationSuccess: handleInvalidate
   });
+
+  // Show loading state while checking permissions
+  if (isLoadingUser || currentUser === undefined) {
+    return <LoadingAccess />;
+  }
 
   if (!hasAccess) {
     return <UnauthorizedAccess />;

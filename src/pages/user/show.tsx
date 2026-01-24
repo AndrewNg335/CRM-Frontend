@@ -12,7 +12,7 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 export const UserShow = () => {
     const go = useGo();
     const { mutate: deleteUser } = useDelete();
-    const { data: currentUser } = useGetIdentity<User>();
+    const { data: currentUser, isLoading: isLoadingUser } = useGetIdentity<User>();
     const hasAccess = hasAdminAccess(currentUser);
     const pathParts = window.location.pathname.split('/');
     const userId = pathParts[pathParts.length - 1];
@@ -24,6 +24,28 @@ export const UserShow = () => {
         },
     });
     const userData = queryResult?.data?.data;
+    const isLoadingData = queryResult?.isLoading;
+
+    // Show loading state while checking permissions or loading data
+    if (isLoadingUser || (isLoadingData && currentUser === undefined)) {
+        return (<div className="page-container">
+        <Card className="professional-card">
+          <div className="text-center py-8">
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <UserOutlined className="text-blue-600 text-2xl animate-pulse"/>
+            </div>
+            <Title level={3} className="text-gray-800 mb-2">
+              Đang tải...
+            </Title>
+            <Text type="secondary" className="text-base">
+              Vui lòng đợi trong giây lát
+            </Text>
+          </div>
+        </Card>
+      </div>);
+    }
+
+    // Only show no access after loading is complete
     if (!hasAccess) {
         return (<div className="page-container">
         <Card className="professional-card">
@@ -41,17 +63,21 @@ export const UserShow = () => {
         </Card>
       </div>);
     }
-    if (!userData) {
+
+    // Show loading while data is being fetched
+    if (isLoadingData || !userData) {
         return (<div className="page-container">
         <Card className="professional-card">
           <div className="text-center py-8">
-            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <UserOutlined className="text-gray-400 text-2xl"/>
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <UserOutlined className="text-blue-600 text-2xl animate-pulse"/>
             </div>
             <Title level={3} className="text-gray-800 mb-2">
-              Bạn không có quyền truy cập trang này
+              Đang tải thông tin người dùng...
             </Title>
-           
+            <Text type="secondary" className="text-base">
+              Vui lòng đợi trong giây lát
+            </Text>
           </div>
         </Card>
       </div>);
